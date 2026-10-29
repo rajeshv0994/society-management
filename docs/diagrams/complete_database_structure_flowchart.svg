@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="2300" viewBox="0 0 2400 2300" role="img" aria-labelledby="title desc">
+  <title id="title">SocietyHub complete PostgreSQL database structure flowchart</title>
+  <desc id="desc">All 64 application tables grouped by domain with core tenant, user, platform payment, property, finance, operations, storage and audit relationship flows.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#17266f"/></marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0b153f" flood-opacity="0.12"/></filter>
+    <style>
+      .title{font:700 42px Arial,sans-serif;fill:#111a3b}.subtitle{font:400 19px Arial,sans-serif;fill:#66718f}.stat{font:700 17px Arial,sans-serif;fill:#17266f;text-anchor:middle}.w{fill:#fff}.group-title{font:700 22px Arial,sans-serif;fill:#111a3b}.table{font:400 16px "Courier New",monospace;fill:#34415f}.table-core{font:600 16px "Courier New",monospace;fill:#17266f}.note{font:400 15px Arial,sans-serif;fill:#53607e}.label{font:700 13px Arial,sans-serif;fill:#17266f;text-anchor:middle}.core{fill:#eef2ff;stroke:#365bd9;stroke-width:2.8;rx:24;filter:url(#shadow)}.platform{fill:#fff8e6;stroke:#e9a91d;stroke-width:2.4;rx:20;filter:url(#shadow)}.people{fill:#f1f6ff;stroke:#5680de;stroke-width:2.4;rx:20;filter:url(#shadow)}.finance{fill:#ecfbf3;stroke:#2b9a67;stroke-width:2.4;rx:20;filter:url(#shadow)}.ops{fill:#fff4ee;stroke:#da7544;stroke-width:2.4;rx:20;filter:url(#shadow)}.storage{fill:#f5efff;stroke:#7654c4;stroke-width:2.4;rx:20;filter:url(#shadow)}.control{fill:#fff0f2;stroke:#cf4560;stroke-width:2.4;rx:20;filter:url(#shadow)}.flow{fill:none;stroke:#17266f;stroke-width:2.4;marker-end:url(#arrow)}.dash{fill:none;stroke:#7654c4;stroke-width:2.2;stroke-dasharray:8 7;marker-end:url(#arrow)}.panel{fill:#f7f8fc;stroke:#d8deed;stroke-width:2;rx:20}
+    </style>
+  </defs>
+  <rect width="2400" height="2300" fill="#fbfaf7"/>
+  <text x="1200" y="58" class="title" text-anchor="middle">SocietyHub — Complete Database Structure</text>
+  <text x="1200" y="92" class="subtitle" text-anchor="middle">PostgreSQL societydb • Flyway catalog through V54 • tenant-scoped operational model</text>
+
+  <rect x="595" y="120" width="330" height="56" rx="28" fill="#eef2ff" stroke="#365bd9"/><text x="760" y="155" class="stat">64 application tables</text>
+  <rect x="1035" y="120" width="330" height="56" rx="28" fill="#ecfbf3" stroke="#2b9a67"/><text x="1200" y="155" class="stat">143 foreign keys</text>
+  <rect x="1475" y="120" width="330" height="56" rx="28" fill="#fff8e6" stroke="#e9a91d"/><text x="1640" y="155" class="stat">UUID business identifiers</text>
+
+  <!-- Core -->
+  <rect x="420" y="220" width="1560" height="400" class="core"/>
+  <text x="465" y="262" class="group-title">CORE TENANT, IDENTITY &amp; PLATFORM COMMERCIAL MODEL</text>
+  <text x="465" y="292" class="note">societies is the tenant root; users supplies actors, administrators, staff and residents.</text>
+  <text x="485" y="340" class="table-core">subscription_plans</text><text x="485" y="374" class="table-core">platform_services</text><text x="485" y="408" class="table-core">societies</text><text x="485" y="442" class="table-core">users</text>
+  <text x="905" y="340" class="table">auth_refresh_sessions</text><text x="905" y="374" class="table">verification_challenges</text><text x="905" y="408" class="table">setup_codes</text><text x="905" y="442" class="table">requirement_requests</text>
+  <text x="1390" y="340" class="table">society_custom_plans</text><text x="1390" y="374" class="table">subscription_orders</text><text x="1390" y="408" class="table">platform_payment_attempts</text><text x="1390" y="442" class="table">razorpay_webhook_events</text><text x="1705" y="408" class="table">platform_payment_settings</text><text x="1705" y="442" class="table">notification_outbox</text>
+  <rect x="485" y="485" width="1390" height="85" rx="14" fill="#fff" stroke="#b8c5ee"/>
+  <text x="1180" y="518" class="stat">Primary relationship flow</text>
+  <text x="1180" y="548" class="note" text-anchor="middle">plans/custom plans → subscription orders → payment attempts • signed webhook events provide idempotency</text>
+
+  <!-- Core fanout -->
+  <path d="M760 620 V685 H315 V735" class="flow"/><path d="M980 620 V685 H880 V735" class="flow"/><path d="M1420 620 V685 H1450 V735" class="flow"/><path d="M1640 620 V685 H2020 V735" class="flow"/>
+  <text x="315" y="710" class="label">society_id / user_id</text><text x="880" y="710" class="label">society_id / flat_id</text><text x="1450" y="710" class="label">parents + actors</text><text x="2020" y="710" class="label">tenant + actors</text>
+
+  <!-- Row 1 -->
+  <rect x="55" y="735" width="520" height="555" class="people"/>
+  <text x="90" y="777" class="group-title">PROPERTY, PEOPLE &amp; CONFIGURATION</text>
+  <text x="90" y="820" class="table">blocks</text><text x="90" y="850" class="table">floors</text><text x="90" y="880" class="table">flats</text>
+  <text x="90" y="925" class="table">resident_registrations</text><text x="90" y="955" class="table">resident_documents</text>
+  <text x="90" y="1000" class="table">household_members</text><text x="90" y="1030" class="table">household_vehicles</text><text x="90" y="1060" class="table">household_emergency_contacts</text>
+  <text x="90" y="1105" class="table">staff_profiles</text><text x="90" y="1135" class="table">staff_permissions</text><text x="90" y="1165" class="table">staff_attendance</text>
+  <text x="90" y="1210" class="table">parking_slots</text><text x="300" y="1210" class="table">vendors</text><text x="90" y="1240" class="table">complaint_categories</text><text x="300" y="1240" class="table">maintenance_charge_rules</text>
+  <text x="315" y="1275" class="note" text-anchor="middle">blocks → floors → flats → occupancy / residents</text>
+
+  <rect x="620" y="735" width="520" height="555" class="finance"/>
+  <text x="655" y="777" class="group-title">SOCIETY FINANCE</text>
+  <text x="655" y="835" class="table">society_payment_settings</text><text x="655" y="875" class="table">member_charge_settings</text><text x="655" y="915" class="table">maintenance_invoices</text><text x="655" y="955" class="table">payments</text>
+  <text x="655" y="1015" class="table">society_budgets</text><text x="655" y="1055" class="table">society_budget_additions</text><text x="655" y="1095" class="table">society_expenses</text><text x="655" y="1135" class="table">staff_salary_payments</text>
+  <rect x="660" y="1190" width="440" height="65" rx="12" fill="#fff" stroke="#92d2b2"/><text x="880" y="1218" class="label">flats → invoices → payments</text><text x="880" y="1242" class="label">society → budgets / expenses / salaries</text>
+
+  <rect x="1185" y="735" width="520" height="555" class="ops"/>
+  <text x="1220" y="777" class="group-title">WORK, COMPLAINTS &amp; NOTICES</text>
+  <text x="1220" y="840" class="table">staff_tasks</text><text x="1220" y="880" class="table">staff_task_updates</text>
+  <text x="1220" y="940" class="table">complaints</text><text x="1220" y="980" class="table">complaint_updates</text>
+  <text x="1220" y="1040" class="table">notices</text><text x="1220" y="1080" class="table">notice_reads</text>
+  <rect x="1225" y="1150" width="440" height="90" rx="12" fill="#fff" stroke="#e6ad91"/><text x="1445" y="1180" class="label">parent record → append-only update/event history</text><text x="1445" y="1207" class="label">users supply assignee, actor, publisher and reader</text>
+
+  <rect x="1750" y="735" width="595" height="555" class="control"/>
+  <text x="1785" y="777" class="group-title">DOCUMENTS, SUPPORT &amp; CONTROL</text>
+  <text x="1785" y="840" class="table">society_documents</text><text x="1785" y="885" class="table">support_tickets</text><text x="1785" y="925" class="table">support_ticket_messages</text>
+  <text x="1785" y="990" class="table-core">audit_events</text>
+  <rect x="1790" y="1050" width="515" height="145" rx="14" fill="#fff" stroke="#e4a2af"/>
+  <text x="2047" y="1082" class="label">All successful HTTP mutations</text><text x="2047" y="1110" class="note" text-anchor="middle">actor_user_id • society_id • action</text><text x="2047" y="1137" class="note" text-anchor="middle">entity • safe JSON details • timestamp</text><text x="2047" y="1173" class="label">support ticket → message conversation</text>
+
+  <!-- Cross row relationship -->
+  <path d="M575 1010 H620" class="flow"/><text x="597" y="995" class="label">flats</text><path d="M1140 1010 H1185" class="flow"/><text x="1162" y="995" class="label">billing actors</text><path d="M1705 1010 H1750" class="flow"/><text x="1727" y="995" class="label">audit</text>
+
+  <!-- Row 2 -->
+  <path d="M315 1290 V1370" class="flow"/><path d="M880 1290 V1370" class="flow"/><path d="M1450 1290 V1370" class="flow"/><path d="M2047 1290 V1370" class="flow"/>
+
+  <rect x="55" y="1370" width="520" height="330" class="ops"/>
+  <text x="90" y="1412" class="group-title">VISITORS &amp; AMENITIES</text>
+  <text x="90" y="1470" class="table">visitors</text><text x="90" y="1510" class="table">visitor_photos</text><text x="90" y="1570" class="table">amenities</text><text x="90" y="1610" class="table">amenity_bookings</text>
+  <text x="315" y="1660" class="note" text-anchor="middle">visitor → photos • amenity → bookings</text>
+
+  <rect x="620" y="1370" width="520" height="330" class="ops"/>
+  <text x="655" y="1412" class="group-title">ACTIVITIES &amp; GALLERIES</text>
+  <text x="655" y="1470" class="table">society_activities</text><text x="655" y="1510" class="table">activity_participations</text><text x="655" y="1550" class="table">activity_gallery_photos</text><text x="655" y="1590" class="table">activity_events</text>
+  <text x="880" y="1660" class="note" text-anchor="middle">activity → participation / gallery / event history</text>
+
+  <rect x="1185" y="1370" width="520" height="330" class="ops"/>
+  <text x="1220" y="1412" class="group-title">DELIVERY &amp; EMERGENCY</text>
+  <text x="1220" y="1470" class="table">deliveries</text><text x="1220" y="1510" class="table">delivery_events</text><text x="1220" y="1560" class="table">emergency_directory_contacts</text><text x="1220" y="1600" class="table">emergency_incidents</text><text x="1220" y="1640" class="table">emergency_incident_events</text>
+
+  <rect x="1750" y="1370" width="595" height="330" class="storage"/>
+  <text x="1785" y="1412" class="group-title">STORAGE QUOTA LEDGER</text>
+  <text x="1785" y="1470" class="table">storage_policies</text><text x="1785" y="1510" class="table">society_storage_accounts</text><text x="1785" y="1550" class="table">storage_addon_purchases</text><text x="1785" y="1590" class="table">storage_objects</text>
+  <text x="2047" y="1650" class="note" text-anchor="middle">policy → society allowance → purchases / metered objects</text>
+
+  <!-- Storage sources -->
+  <path d="M315 1700 V1765 H2047 V1700" class="dash"/><path d="M880 1700 V1765" class="dash"/><path d="M1445 1700 V1765" class="dash"/>
+  <rect x="505" y="1745" width="1390" height="58" rx="14" fill="#fff" stroke="#b69de5"/>
+  <text x="1200" y="1779" class="label">resident_documents • visitor_photos • activity_gallery_photos • society_documents → storage_objects → physical upload path</text>
+
+  <!-- Persistence / conventions -->
+  <rect x="55" y="1860" width="2290" height="300" class="panel"/>
+  <text x="90" y="1905" class="group-title">PERSISTENCE AND TENANT RULES</text>
+  <rect x="95" y="1940" width="505" height="155" rx="16" fill="#fff" stroke="#cfd7ea"/>
+  <text x="347" y="1975" class="stat">Tenant boundary</text><text x="347" y="2007" class="note" text-anchor="middle">society_id comes from authenticated context</text><text x="347" y="2035" class="note" text-anchor="middle">client tenant identifiers are never authorization</text><text x="347" y="2063" class="note" text-anchor="middle">Super Admin alone has platform scope</text>
+  <rect x="650" y="1940" width="505" height="155" rx="16" fill="#fff" stroke="#cfd7ea"/>
+  <text x="902" y="1975" class="stat">Data types and history</text><text x="902" y="2007" class="note" text-anchor="middle">UUID IDs • numeric money • explicit status</text><text x="902" y="2035" class="note" text-anchor="middle">JSONB for variable snapshots/details</text><text x="902" y="2063" class="note" text-anchor="middle">event/update tables preserve timelines</text>
+  <rect x="1205" y="1940" width="505" height="155" rx="16" fill="#fff" stroke="#cfd7ea"/>
+  <text x="1457" y="1975" class="stat">Binary storage</text><text x="1457" y="2007" class="note" text-anchor="middle">PostgreSQL stores metadata and storage keys</text><text x="1457" y="2035" class="note" text-anchor="middle">actual bytes remain in uploads/object storage</text><text x="1457" y="2063" class="note" text-anchor="middle">quota ledger meters active bytes</text>
+  <rect x="1760" y="1940" width="505" height="155" rx="16" fill="#fff" stroke="#cfd7ea"/>
+  <text x="2012" y="1975" class="stat">Schema lifecycle</text><text x="2012" y="2007" class="note" text-anchor="middle">Flyway V1–V54 owns schema changes</text><text x="2012" y="2035" class="note" text-anchor="middle">flyway_schema_history is system-managed</text><text x="2012" y="2063" class="note" text-anchor="middle">database + matching file backup required</text>
+
+  <rect x="870" y="2200" width="660" height="70" rx="35" fill="#101b68" filter="url(#shadow)"/>
+  <text x="1200" y="2244" class="stat w">societydb — ONE LOGICAL MULTI-TENANT DATABASE</text>
+</svg>

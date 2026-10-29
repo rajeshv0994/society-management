@@ -1,0 +1,134 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    default: local
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/societydb}
+    username: ${SPRING_DATASOURCE_USERNAME:societyapp}
+    password: ${SPRING_DATASOURCE_PASSWORD:societyapp-dev-password}
+    hikari:
+      data-source-properties:
+        stringtype: unspecified
+  jpa:
+    mapping-resources: META-INF/orm.xml
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+  servlet:
+    multipart:
+      max-file-size: ${MAX_UPLOAD_SIZE:100MB}
+      max-request-size: ${MAX_REQUEST_SIZE:105MB}
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        enable.idempotence: true
+        max.in.flight.requests.per.connection: 5
+
+jwt:
+  secret: ${JWT_SECRET:local-development-secret-key-must-be-at-least-32-bytes}
+  expiration: ${JWT_EXPIRATION:900000}
+  refresh-expiration-days: ${JWT_REFRESH_EXPIRATION_DAYS:30}
+
+app:
+  bootstrap:
+    super-admin-email: ${SUPER_ADMIN_EMAIL:admin@society.local}
+    super-admin-password: ${SUPER_ADMIN_PASSWORD:Admin@12345}
+  razorpay:
+    key-id: ${RAZORPAY_KEY_ID:}
+    key-secret: ${RAZORPAY_KEY_SECRET:}
+    webhook-secret: ${RAZORPAY_WEBHOOK_SECRET:}
+    api-base: ${RAZORPAY_API_BASE:https://api.razorpay.com/v1}
+  cors-allowed-origins: ${CORS_ALLOWED_ORIGINS}
+  uploads-directory: ${UPLOADS_DIRECTORY:./data/uploads}
+  max-upload-bytes: ${MAX_UPLOAD_BYTES:104857600}
+  seed-demo-data: ${SEED_DEMO_DATA:false}
+  kafka:
+    enabled: ${KAFKA_ENABLED:false}
+    notification-topic: ${KAFKA_NOTIFICATION_TOPIC:society.notifications.v1}
+    dispatch-delay-ms: ${KAFKA_DISPATCH_DELAY_MS:5000}
+    batch-size: ${KAFKA_BATCH_SIZE:50}
+    max-attempts: ${KAFKA_MAX_ATTEMPTS:5}
+    send-timeout-ms: ${KAFKA_SEND_TIMEOUT_MS:10000}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    display-request-duration: true
+    filter: true
+    groups-order: asc
+    operations-sorter: method
+    tags-sorter: alpha
+  group-configs:
+    - group: complete-api
+      display-name: Complete API
+      paths-to-match:
+        - /api/**
+    - group: public-auth
+      display-name: Public & Authentication
+      paths-to-match:
+        - /api/public/**
+        - /api/auth/**
+    - group: platform-admin
+      display-name: Super Admin
+      paths-to-match:
+        - /api/admin/**
+        - /api/dashboard/platform
+    - group: society-admin
+      display-name: Society Admin
+      paths-to-match:
+        - /api/society/**
+        - /api/dashboard/society
+        - /api/tasks/**
+        - /api/complaints/**
+        - /api/notices/**
+        - /api/visitors/**
+        - /api/amenities/**
+        - /api/activities/**
+        - /api/configuration/**
+        - /api/households/**
+        - /api/deliveries/**
+        - /api/emergencies/**
+        - /api/billing/**
+        - /api/support/**
+    - group: staff
+      display-name: Staff
+      paths-to-match:
+        - /api/dashboard/society
+        - /api/society/staff/**
+        - /api/tasks/**
+        - /api/complaints/**
+        - /api/notices/**
+        - /api/visitors/**
+        - /api/amenities/**
+        - /api/activities/**
+        - /api/configuration/**
+        - /api/households/**
+        - /api/deliveries/**
+        - /api/emergencies/**
+        - /api/billing/**
+    - group: member
+      display-name: Member
+      paths-to-match:
+        - /api/dashboard/society
+        - /api/member/**
+        - /api/complaints/**
+        - /api/notices/**
+        - /api/visitors/**
+        - /api/amenities/**
+        - /api/activities/**
+        - /api/configuration/**
+        - /api/households/**
+        - /api/deliveries/**
+        - /api/emergencies/**
+        - /api/billing/**

@@ -1,0 +1,10 @@
+FROM eclipse-temurin:21.0.11_10-jre-alpine
+
+RUN addgroup --system societyapp \
+    && adduser --system --ingroup societyapp --home /app societyapp
+WORKDIR /app
+COPY --chown=societyapp:societyapp target/backend-*.jar app.jar
+
+USER societyapp
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]

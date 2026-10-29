@@ -1,0 +1,2604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence/orm https://jakarta.ee/xml/ns/persistence/orm/orm_3_1.xsd"
+                 version="3.1">
+    <package>com.societyapp.domain.model</package>
+    <access>FIELD</access>
+    <entity class="ActivityEvent" access="FIELD">
+        <table name="activity_events"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="activityId">
+                <column name="activity_id" nullable="false"/>
+            </basic>
+            <basic name="participationId">
+                <column name="participation_id"/>
+            </basic>
+            <basic name="eventType">
+                <column name="event_type" nullable="false" length="50"/>
+            </basic>
+            <basic name="note">
+                <column length="1000"/>
+            </basic>
+            <basic name="actorId">
+                <column name="actor_id" nullable="false"/>
+            </basic>
+            <basic name="actorRole">
+                <column name="actor_role" nullable="false" length="30"/>
+            </basic>
+            <basic name="occurredAt">
+                <column name="occurred_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="ActivityGalleryPhoto" access="FIELD">
+        <table name="activity_gallery_photos"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="activityId">
+                <column name="activity_id" nullable="false"/>
+            </basic>
+            <basic name="submittedBy">
+                <column name="submitted_by" nullable="false"/>
+            </basic>
+            <basic name="storageKey">
+                <column name="storage_key" nullable="false" length="500"/>
+            </basic>
+            <basic name="contentType">
+                <column name="content_type" nullable="false" length="100"/>
+            </basic>
+            <basic name="caption">
+                <column length="500"/>
+            </basic>
+            <basic name="moderationStatus">
+                <column name="moderation_status" nullable="false" length="20"/>
+            </basic>
+            <basic name="featured">
+                <column nullable="false"/>
+            </basic>
+            <basic name="reviewedBy">
+                <column name="reviewed_by"/>
+            </basic>
+            <basic name="reviewedAt">
+                <column name="reviewed_at"/>
+            </basic>
+            <basic name="rejectionReason">
+                <column name="rejection_reason" length="500"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="ActivityParticipation" access="FIELD">
+        <table name="activity_participations"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="activityId">
+                <column name="activity_id" nullable="false"/>
+            </basic>
+            <basic name="participantId">
+                <column name="participant_id" nullable="false"/>
+            </basic>
+            <basic name="participantCount">
+                <column name="participant_count" nullable="false"/>
+            </basic>
+            <basic name="participantNames">
+                <column name="participant_names" length="1000"/>
+            </basic>
+            <basic name="contactMobile">
+                <column name="contact_mobile" length="20"/>
+            </basic>
+            <basic name="notes">
+                <column length="500"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="paymentStatus">
+                <column name="payment_status" nullable="false" length="30"/>
+            </basic>
+            <basic name="paymentMethod">
+                <column name="payment_method" length="30"/>
+            </basic>
+            <basic name="paymentReference">
+                <column name="payment_reference" length="120"/>
+            </basic>
+            <basic name="paidAt">
+                <column name="paid_at"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="reviewedBy">
+                <column name="reviewed_by"/>
+            </basic>
+            <basic name="reviewedAt">
+                <column name="reviewed_at"/>
+            </basic>
+            <basic name="rejectionReason">
+                <column name="rejection_reason" length="500"/>
+            </basic>
+            <basic name="checkedInAt">
+                <column name="checked_in_at"/>
+            </basic>
+            <basic name="attendedAt">
+                <column name="attended_at"/>
+            </basic>
+            <basic name="cancelledAt">
+                <column name="cancelled_at"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Amenity" access="FIELD">
+        <table name="amenities"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="name">
+                <column nullable="false" length="120"/>
+            </basic>
+            <basic name="amenityType">
+                <column name="amenity_type" nullable="false" length="40"/>
+            </basic>
+            <basic name="amenityCode">
+                <column name="amenity_code" nullable="false" length="40"/>
+            </basic>
+            <basic name="description">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="capacity">
+            </basic>
+            <basic name="location">
+                <column length="180"/>
+            </basic>
+            <basic name="hourlyCharge">
+                <column name="hourly_charge" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="pricingType">
+                <column name="pricing_type" nullable="false" length="20"/>
+            </basic>
+            <basic name="bookingCharge">
+                <column name="booking_charge" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="refundableDeposit">
+                <column name="refundable_deposit" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="opensAt">
+                <column name="opens_at"/>
+            </basic>
+            <basic name="closesAt">
+                <column name="closes_at"/>
+            </basic>
+            <basic name="bookingApprovalRequired">
+                <column name="booking_approval_required" nullable="false"/>
+            </basic>
+            <basic name="slotMinutes">
+                <column name="slot_minutes" nullable="false"/>
+            </basic>
+            <basic name="advanceBookingDays">
+                <column name="advance_booking_days" nullable="false"/>
+            </basic>
+            <basic name="cancellationHours">
+                <column name="cancellation_hours" nullable="false"/>
+            </basic>
+            <basic name="instructions">
+                <column length="500"/>
+            </basic>
+            <basic name="active">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="AmenityBooking" access="FIELD">
+        <table name="amenity_bookings"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="amenityId">
+                <column name="amenity_id" nullable="false"/>
+            </basic>
+            <basic name="bookedBy">
+                <column name="booked_by" nullable="false"/>
+            </basic>
+            <basic name="bookingNumber">
+                <column name="booking_number" nullable="false" length="50"/>
+            </basic>
+            <basic name="startsAt">
+                <column name="starts_at" nullable="false"/>
+            </basic>
+            <basic name="endsAt">
+                <column name="ends_at" nullable="false"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="baseCharge">
+                <column name="base_charge" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="depositAmount">
+                <column name="deposit_amount" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="purpose">
+                <column length="240"/>
+            </basic>
+            <basic name="attendees">
+                <column nullable="false"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="paymentStatus">
+                <column name="payment_status" nullable="false" length="30"/>
+            </basic>
+            <basic name="paymentMethod">
+                <column name="payment_method" length="40"/>
+            </basic>
+            <basic name="paymentReference">
+                <column name="payment_reference" length="120"/>
+            </basic>
+            <basic name="reviewedBy">
+                <column name="reviewed_by"/>
+            </basic>
+            <basic name="reviewedAt">
+                <column name="reviewed_at"/>
+            </basic>
+            <basic name="rejectionReason">
+                <column name="rejection_reason" length="300"/>
+            </basic>
+            <basic name="cancelledAt">
+                <column name="cancelled_at"/>
+            </basic>
+            <basic name="checkedInAt">
+                <column name="checked_in_at"/>
+            </basic>
+            <basic name="checkedOutAt">
+                <column name="checked_out_at"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="AuditEvent" access="FIELD">
+        <table name="audit_events"/>
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY"/>
+            </id>
+            <basic name="societyId">
+                <column name="society_id"/>
+            </basic>
+            <basic name="actorUserId">
+                <column name="actor_user_id"/>
+            </basic>
+            <basic name="action">
+                <column nullable="false" length="100"/>
+            </basic>
+            <basic name="entityType">
+                <column name="entity_type" nullable="false" length="80"/>
+            </basic>
+            <basic name="entityId">
+                <column name="entity_id" length="100"/>
+            </basic>
+            <basic name="sensitive">
+                <column nullable="false"/>
+            </basic>
+            <basic name="details">
+                <column nullable="false" column-definition="jsonb"/>
+            </basic>
+            <basic name="occurredAt">
+                <column name="occurred_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <mapped-superclass class="BaseUuidEntity" access="FIELD">
+        <attributes>
+            <id name="id">
+                <column name="id" nullable="false" updatable="false"/>
+                <generated-value strategy="AUTO"/>
+            </id>
+        </attributes>
+    </mapped-superclass>
+    <entity class="Block" access="FIELD">
+        <table name="blocks"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="name">
+                <column nullable="false" length="60"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Complaint" access="FIELD">
+        <table name="complaints"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="raisedBy">
+                <column name="raised_by" nullable="false"/>
+            </basic>
+            <basic name="categoryId">
+                <column name="category_id"/>
+            </basic>
+            <basic name="residentId">
+                <column name="resident_id"/>
+            </basic>
+            <basic name="flatId">
+                <column name="flat_id"/>
+            </basic>
+            <basic name="createdBy">
+                <column name="created_by" nullable="false"/>
+            </basic>
+            <basic name="title">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="description">
+                <column nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="priority">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="assignedTo">
+                <column name="assigned_to"/>
+            </basic>
+            <basic name="resolution">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+            <basic name="closedAt">
+                <column name="closed_at"/>
+            </basic>
+            <basic name="dueAt">
+                <column name="due_at"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="ComplaintCategory" access="FIELD">
+        <table name="complaint_categories"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="name">
+                <column nullable="false" length="100"/>
+            </basic>
+            <basic name="slaHours">
+                <column name="sla_hours" nullable="false"/>
+            </basic>
+            <basic name="active">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="ComplaintUpdate" access="FIELD">
+        <table name="complaint_updates"/>
+        <attributes>
+            <basic name="complaintId">
+                <column name="complaint_id" nullable="false"/>
+            </basic>
+            <basic name="actorUserId">
+                <column name="actor_user_id" nullable="false"/>
+            </basic>
+            <basic name="eventType">
+                <column name="event_type" nullable="false" length="30"/>
+            </basic>
+            <basic name="fromStatus">
+                <column name="from_status" length="30"/>
+            </basic>
+            <basic name="toStatus">
+                <column name="to_status" length="30"/>
+            </basic>
+            <basic name="note">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Delivery" access="FIELD">
+        <table name="deliveries"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="flatId">
+                <column name="flat_id" nullable="false"/>
+            </basic>
+            <basic name="residentId">
+                <column name="resident_id" nullable="false"/>
+            </basic>
+            <basic name="deliveryNumber">
+                <column name="delivery_number" nullable="false" length="40"/>
+            </basic>
+            <basic name="trackingNumber">
+                <column name="tracking_number" length="100"/>
+            </basic>
+            <basic name="provider">
+                <column nullable="false" length="80"/>
+            </basic>
+            <basic name="senderName">
+                <column name="sender_name" length="150"/>
+            </basic>
+            <basic name="deliveryPersonName">
+                <column name="delivery_person_name" length="150"/>
+            </basic>
+            <basic name="deliveryPersonMobile">
+                <column name="delivery_person_mobile" length="20"/>
+            </basic>
+            <basic name="parcelType">
+                <column name="parcel_type" nullable="false" length="30"/>
+            </basic>
+            <basic name="packageCount">
+                <column name="package_count" nullable="false"/>
+            </basic>
+            <basic name="parcelSize">
+                <column name="parcel_size" nullable="false" length="20"/>
+            </basic>
+            <basic name="fragile">
+                <column nullable="false"/>
+            </basic>
+            <basic name="storageLocation">
+                <column name="storage_location" length="80"/>
+            </basic>
+            <basic name="expectedAt">
+                <column name="expected_at"/>
+            </basic>
+            <basic name="notes">
+                <column length="500"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="residentDecision">
+                <column name="resident_decision" length="20"/>
+            </basic>
+            <basic name="residentDecisionAt">
+                <column name="resident_decision_at"/>
+            </basic>
+            <basic name="authorizedCollector">
+                <column name="authorized_collector" length="150"/>
+            </basic>
+            <basic name="pickupCode">
+                <column name="pickup_code" length="6"/>
+            </basic>
+            <basic name="codAmount">
+                <column name="cod_amount" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="codPaymentStatus">
+                <column name="cod_payment_status" nullable="false" length="20"/>
+            </basic>
+            <basic name="codPaymentMethod">
+                <column name="cod_payment_method" length="30"/>
+            </basic>
+            <basic name="codPaymentReference">
+                <column name="cod_payment_reference" length="120"/>
+            </basic>
+            <basic name="codPaidAt">
+                <column name="cod_paid_at"/>
+            </basic>
+            <basic name="receivedBy">
+                <column name="received_by"/>
+            </basic>
+            <basic name="receivedAt">
+                <column name="received_at"/>
+            </basic>
+            <basic name="collectedByName">
+                <column name="collected_by_name" length="150"/>
+            </basic>
+            <basic name="handedOverBy">
+                <column name="handed_over_by"/>
+            </basic>
+            <basic name="collectedAt">
+                <column name="collected_at"/>
+            </basic>
+            <basic name="deliveredAt">
+                <column name="delivered_at"/>
+            </basic>
+            <basic name="returnedAt">
+                <column name="returned_at"/>
+            </basic>
+            <basic name="closedReason">
+                <column name="closed_reason" length="300"/>
+            </basic>
+            <basic name="createdBy">
+                <column name="created_by" nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="DeliveryEvent" access="FIELD">
+        <table name="delivery_events"/>
+        <attributes>
+            <basic name="deliveryId">
+                <column name="delivery_id" nullable="false"/>
+            </basic>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="eventType">
+                <column name="event_type" nullable="false" length="40"/>
+            </basic>
+            <basic name="fromStatus">
+                <column name="from_status" length="30"/>
+            </basic>
+            <basic name="toStatus">
+                <column name="to_status" length="30"/>
+            </basic>
+            <basic name="note">
+                <column length="500"/>
+            </basic>
+            <basic name="actorId">
+                <column name="actor_id" nullable="false"/>
+            </basic>
+            <basic name="actorRole">
+                <column name="actor_role" nullable="false" length="30"/>
+            </basic>
+            <basic name="occurredAt">
+                <column name="occurred_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="EmergencyDirectoryContact" access="FIELD">
+        <table name="emergency_directory_contacts"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="contactType">
+                <column name="contact_type" nullable="false" length="30"/>
+            </basic>
+            <basic name="name">
+                <column nullable="false" length="150"/>
+            </basic>
+            <basic name="phone">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="alternatePhone">
+                <column name="alternate_phone" length="20"/>
+            </basic>
+            <basic name="address">
+                <column length="300"/>
+            </basic>
+            <basic name="available24x7">
+                <column name="available_24x7" nullable="false"/>
+            </basic>
+            <basic name="priority">
+                <column nullable="false"/>
+            </basic>
+            <basic name="active">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createdBy">
+                <column name="created_by" nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="EmergencyIncident" access="FIELD">
+        <table name="emergency_incidents"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="incidentNumber">
+                <column name="incident_number" nullable="false" length="40"/>
+            </basic>
+            <basic name="reporterId">
+                <column name="reporter_id" nullable="false"/>
+            </basic>
+            <basic name="reporterRole">
+                <column name="reporter_role" nullable="false" length="30"/>
+            </basic>
+            <basic name="residentId">
+                <column name="resident_id"/>
+            </basic>
+            <basic name="flatId">
+                <column name="flat_id"/>
+            </basic>
+            <basic name="incidentType">
+                <column name="incident_type" nullable="false" length="30"/>
+            </basic>
+            <basic name="severity">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="title">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="description">
+                <column nullable="false" length="1500"/>
+            </basic>
+            <basic name="locationDetails">
+                <column name="location_details" nullable="false" length="300"/>
+            </basic>
+            <basic name="latitude">
+                <column precision="10" scale="7"/>
+            </basic>
+            <basic name="longitude">
+                <column precision="10" scale="7"/>
+            </basic>
+            <basic name="peopleAffected">
+                <column name="people_affected" nullable="false"/>
+            </basic>
+            <basic name="injuredPersonName">
+                <column name="injured_person_name" length="150"/>
+            </basic>
+            <basic name="injuredPersonMobile">
+                <column name="injured_person_mobile" length="20"/>
+            </basic>
+            <basic name="injuryDetails">
+                <column name="injury_details" length="800"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="assignedStaffId">
+                <column name="assigned_staff_id"/>
+            </basic>
+            <basic name="emergencyContactNotified">
+                <column name="emergency_contact_notified" nullable="false"/>
+            </basic>
+            <basic name="ambulanceRequested">
+                <column name="ambulance_requested" nullable="false"/>
+            </basic>
+            <basic name="policeRequested">
+                <column name="police_requested" nullable="false"/>
+            </basic>
+            <basic name="fireServiceRequested">
+                <column name="fire_service_requested" nullable="false"/>
+            </basic>
+            <basic name="hospitalName">
+                <column name="hospital_name" length="180"/>
+            </basic>
+            <basic name="externalReference">
+                <column name="external_reference" length="120"/>
+            </basic>
+            <basic name="acknowledgedAt">
+                <column name="acknowledged_at"/>
+            </basic>
+            <basic name="responseStartedAt">
+                <column name="response_started_at"/>
+            </basic>
+            <basic name="arrivedAt">
+                <column name="arrived_at"/>
+            </basic>
+            <basic name="stabilizedAt">
+                <column name="stabilized_at"/>
+            </basic>
+            <basic name="resolvedAt">
+                <column name="resolved_at"/>
+            </basic>
+            <basic name="closedAt">
+                <column name="closed_at"/>
+            </basic>
+            <basic name="resolutionSummary">
+                <column name="resolution_summary" length="1000"/>
+            </basic>
+            <basic name="closedReason">
+                <column name="closed_reason" length="500"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="EmergencyIncidentEvent" access="FIELD">
+        <table name="emergency_incident_events"/>
+        <attributes>
+            <basic name="incidentId">
+                <column name="incident_id" nullable="false"/>
+            </basic>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="eventType">
+                <column name="event_type" nullable="false" length="40"/>
+            </basic>
+            <basic name="fromStatus">
+                <column name="from_status" length="30"/>
+            </basic>
+            <basic name="toStatus">
+                <column name="to_status" length="30"/>
+            </basic>
+            <basic name="note">
+                <column length="1000"/>
+            </basic>
+            <basic name="actorId">
+                <column name="actor_id" nullable="false"/>
+            </basic>
+            <basic name="actorRole">
+                <column name="actor_role" nullable="false" length="30"/>
+            </basic>
+            <basic name="occurredAt">
+                <column name="occurred_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Flat" access="FIELD">
+        <table name="flats"/>
+        <attributes>
+            <basic name="floorId">
+                <column name="floor_id" nullable="false"/>
+            </basic>
+            <basic name="flatNumber">
+                <column name="flat_number" nullable="false" length="30"/>
+            </basic>
+            <basic name="occupancyStatus">
+                <column name="occupancy_status" nullable="false" length="30"/>
+            </basic>
+            <basic name="activeOwnerId">
+                <column name="active_owner_id"/>
+            </basic>
+            <basic name="activeTenantId">
+                <column name="active_tenant_id"/>
+            </basic>
+            <basic name="areaSqft">
+                <column name="area_sqft" precision="10" scale="2"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Floor" access="FIELD">
+        <table name="floors"/>
+        <attributes>
+            <basic name="blockId">
+                <column name="block_id" nullable="false"/>
+            </basic>
+            <basic name="name">
+                <column nullable="false" length="60"/>
+            </basic>
+            <basic name="floorNumber">
+                <column name="floor_number" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="HouseholdEmergencyContact" access="FIELD">
+        <table name="household_emergency_contacts"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="primaryResidentId">
+                <column name="primary_resident_id" nullable="false"/>
+            </basic>
+            <basic name="fullName">
+                <column name="full_name" nullable="false" length="150"/>
+            </basic>
+            <basic name="relationship">
+                <column nullable="false" length="40"/>
+            </basic>
+            <basic name="mobile">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="alternateMobile">
+                <column name="alternate_mobile" length="20"/>
+            </basic>
+            <basic name="priority">
+                <column nullable="false"/>
+            </basic>
+            <basic name="active">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="HouseholdMember" access="FIELD">
+        <table name="household_members"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="primaryResidentId">
+                <column name="primary_resident_id" nullable="false"/>
+            </basic>
+            <basic name="memberCode">
+                <column name="member_code" nullable="false" length="30"/>
+            </basic>
+            <basic name="fullName">
+                <column name="full_name" nullable="false" length="150"/>
+            </basic>
+            <basic name="relationship">
+                <column nullable="false" length="40"/>
+            </basic>
+            <basic name="mobile">
+                <column length="20"/>
+            </basic>
+            <basic name="dateOfBirth">
+                <column name="date_of_birth"/>
+            </basic>
+            <basic name="email">
+                <column length="180"/>
+            </basic>
+            <basic name="gender">
+                <column length="20"/>
+            </basic>
+            <basic name="bloodGroup">
+                <column name="blood_group" length="10"/>
+            </basic>
+            <basic name="occupation">
+                <column length="120"/>
+            </basic>
+            <basic name="identityType">
+                <column name="identity_type" length="30"/>
+            </basic>
+            <basic name="identityLast4">
+                <column name="identity_last4" length="4"/>
+            </basic>
+            <basic name="emergencyContactName">
+                <column name="emergency_contact_name" length="150"/>
+            </basic>
+            <basic name="emergencyContactMobile">
+                <column name="emergency_contact_mobile" length="20"/>
+            </basic>
+            <basic name="accessEnabled">
+                <column name="access_enabled" nullable="false"/>
+            </basic>
+            <basic name="verificationStatus">
+                <column name="verification_status" nullable="false" length="20"/>
+            </basic>
+            <basic name="verificationNote">
+                <column name="verification_note" length="300"/>
+            </basic>
+            <basic name="reviewedBy">
+                <column name="reviewed_by"/>
+            </basic>
+            <basic name="reviewedAt">
+                <column name="reviewed_at"/>
+            </basic>
+            <basic name="active">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="HouseholdVehicle" access="FIELD">
+        <table name="household_vehicles"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="primaryResidentId">
+                <column name="primary_resident_id" nullable="false"/>
+            </basic>
+            <basic name="vehicleType">
+                <column name="vehicle_type" nullable="false" length="20"/>
+            </basic>
+            <basic name="registrationNumber">
+                <column name="registration_number" nullable="false" length="20"/>
+            </basic>
+            <basic name="make">
+                <column length="80"/>
+            </basic>
+            <basic name="model">
+                <column length="80"/>
+            </basic>
+            <basic name="color">
+                <column length="40"/>
+            </basic>
+            <basic name="parkingSlot">
+                <column name="parking_slot" length="40"/>
+            </basic>
+            <basic name="stickerNumber">
+                <column name="sticker_number" length="40"/>
+            </basic>
+            <basic name="verificationStatus">
+                <column name="verification_status" nullable="false" length="20"/>
+            </basic>
+            <basic name="verificationNote">
+                <column name="verification_note" length="300"/>
+            </basic>
+            <basic name="reviewedBy">
+                <column name="reviewed_by"/>
+            </basic>
+            <basic name="reviewedAt">
+                <column name="reviewed_at"/>
+            </basic>
+            <basic name="active">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="MaintenanceChargeRule" access="FIELD">
+        <table name="maintenance_charge_rules"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="name">
+                <column nullable="false" length="120"/>
+            </basic>
+            <basic name="calculationType">
+                <column name="calculation_type" nullable="false" length="30"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="frequency">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="effectiveFrom">
+                <column name="effective_from" nullable="false"/>
+            </basic>
+            <basic name="effectiveTo">
+                <column name="effective_to"/>
+            </basic>
+            <basic name="active">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="MaintenanceInvoice" access="FIELD">
+        <table name="maintenance_invoices"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="flatId">
+                <column name="flat_id" nullable="false"/>
+            </basic>
+            <basic name="invoiceNumber">
+                <column name="invoice_number" nullable="false" length="50"/>
+            </basic>
+            <basic name="billingMonth">
+                <column name="billing_month" nullable="false"/>
+            </basic>
+            <basic name="dueDate">
+                <column name="due_date" nullable="false"/>
+            </basic>
+            <basic name="subtotal">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="membershipFee">
+                <column name="membership_fee" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="otherCharges">
+                <column name="other_charges" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="otherChargeNote">
+                <column name="other_charge_note" length="240"/>
+            </basic>
+            <basic name="lateFee">
+                <column name="late_fee" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="paidAmount">
+                <column name="paid_amount" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="MemberChargeSetting" access="FIELD">
+        <table name="member_charge_settings"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="flatId">
+                <column name="flat_id"/>
+            </basic>
+            <basic name="name">
+                <column nullable="false" length="120"/>
+            </basic>
+            <basic name="chargeType">
+                <column name="charge_type" nullable="false" length="20"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="frequency">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="description">
+                <column length="240"/>
+            </basic>
+            <basic name="active">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Notice" access="FIELD">
+        <table name="notices"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="title">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="body">
+                <column nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="audience">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="publishedBy">
+                <column name="published_by" nullable="false"/>
+            </basic>
+            <basic name="publishedAt">
+                <column name="published_at"/>
+            </basic>
+            <basic name="expiresAt">
+                <column name="expires_at"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="priority">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="pinned">
+                <column nullable="false"/>
+            </basic>
+            <basic name="requiresAcknowledgement">
+                <column name="requires_acknowledgement" nullable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="NoticeRead" access="FIELD">
+        <table name="notice_reads"/>
+        <id-class class="com.societyapp.domain.model.NoticeReadId"/>
+        <attributes>
+            <id name="noticeId">
+                <column name="notice_id"/>
+            </id>
+            <id name="userId">
+                <column name="user_id"/>
+            </id>
+            <basic name="readAt">
+                <column name="read_at" nullable="false"/>
+            </basic>
+            <basic name="acknowledgedAt">
+                <column name="acknowledged_at"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="NotificationOutbox" access="FIELD">
+        <table name="notification_outbox"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id"/>
+            </basic>
+            <basic name="channel">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="destination">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="templateCode">
+                <column name="template_code" nullable="false" length="80"/>
+            </basic>
+            <basic name="payload">
+                <column nullable="false" column-definition="jsonb"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="attempts">
+                <column nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="sentAt">
+                <column name="sent_at"/>
+            </basic>
+            <basic name="lastError">
+                <column name="last_error" column-definition="text"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="ParkingSlot" access="FIELD">
+        <table name="parking_slots"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="slotNumber">
+                <column name="slot_number" nullable="false" length="40"/>
+            </basic>
+            <basic name="slotType">
+                <column name="slot_type" nullable="false" length="20"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="flatId">
+                <column name="flat_id"/>
+            </basic>
+            <basic name="vehicleNumber">
+                <column name="vehicle_number" length="30"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Payment" access="FIELD">
+        <table name="payments"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="invoiceId">
+                <column name="invoice_id" nullable="false"/>
+            </basic>
+            <basic name="paidBy">
+                <column name="paid_by" nullable="false"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="paymentMethod">
+                <column name="payment_method" nullable="false" length="30"/>
+            </basic>
+            <basic name="providerReference">
+                <column name="provider_reference" unique="true" length="120"/>
+            </basic>
+            <basic name="receiptNumber">
+                <column name="receipt_number" nullable="false" unique="true" length="50"/>
+            </basic>
+            <basic name="paymentChannel">
+                <column name="payment_channel" nullable="false" length="20"/>
+            </basic>
+            <basic name="recordedBy">
+                <column name="recorded_by" nullable="false"/>
+            </basic>
+            <basic name="note">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="paidAt">
+                <column name="paid_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="PlatformPaymentAttempt" access="FIELD">
+        <table name="platform_payment_attempts"/>
+        <attributes>
+            <basic name="subscriptionOrderId">
+                <column name="subscription_order_id" nullable="false"/>
+            </basic>
+            <basic name="providerOrderId">
+                <column name="provider_order_id" nullable="false" unique="true" length="120"/>
+            </basic>
+            <basic name="providerPaymentId">
+                <column name="provider_payment_id" unique="true" length="120"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="currency">
+                <column nullable="false" length="3"/>
+            </basic>
+            <basic name="requestedMethod">
+                <column name="requested_method" length="30"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="failureCode">
+                <column name="failure_code" length="100"/>
+            </basic>
+            <basic name="failureDescription">
+                <column name="failure_description" length="500"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="PlatformPaymentSetting" access="FIELD">
+        <table name="platform_payment_settings"/>
+        <attributes>
+            <basic name="beneficiaryName">
+                <column name="beneficiary_name" nullable="false" length="150"/>
+            </basic>
+            <basic name="bankName">
+                <column name="bank_name" length="150"/>
+            </basic>
+            <basic name="accountNumber">
+                <column name="account_number" length="60"/>
+            </basic>
+            <basic name="ifscCode">
+                <column name="ifsc_code" length="20"/>
+            </basic>
+            <basic name="upiId">
+                <column name="upi_id" length="100"/>
+            </basic>
+            <basic name="paymentInstructions">
+                <column name="payment_instructions" length="500"/>
+            </basic>
+            <basic name="updatedBy">
+                <column name="updated_by"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="PlatformServiceModule" access="FIELD">
+        <table name="platform_services"/>
+        <attributes>
+            <id name="code">
+                <column length="40"/>
+            </id>
+            <basic name="name">
+                <column nullable="false" length="100"/>
+            </basic>
+            <basic name="description">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="sortOrder">
+                <column name="sort_order" nullable="false"/>
+            </basic>
+            <basic name="availabilityType">
+                <column name="availability_type" nullable="false" length="24"/>
+            </basic>
+            <basic name="pricePerSpace">
+                <column name="price_per_space" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="RazorpayWebhookEvent" access="FIELD">
+        <table name="razorpay_webhook_events"/>
+        <attributes>
+            <id name="eventId">
+                <column name="event_id" length="150"/>
+            </id>
+            <basic name="eventType">
+                <column name="event_type" nullable="false" length="80"/>
+            </basic>
+            <basic name="receivedAt">
+                <column name="received_at" nullable="false"/>
+            </basic>
+            <basic name="processedAt">
+                <column name="processed_at"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="RequirementRequest" access="FIELD">
+        <table name="requirement_requests"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id"/>
+            </basic>
+            <basic name="societyName">
+                <column name="society_name" nullable="false" length="180"/>
+            </basic>
+            <basic name="contactPerson">
+                <column name="contact_person" nullable="false" length="150"/>
+            </basic>
+            <basic name="email">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="mobile">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="city">
+                <column length="100"/>
+            </basic>
+            <basic name="estimatedFlats">
+                <column name="estimated_flats"/>
+            </basic>
+            <basic name="estimatedStaff">
+                <column name="estimated_staff"/>
+            </basic>
+            <basic name="requestedModules">
+                <column name="requested_modules" nullable="false" column-definition="jsonb"/>
+            </basic>
+            <basic name="requirementDetails">
+                <column name="requirement_details" nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="budgetMonthly">
+                <column name="budget_monthly" precision="12" scale="2"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="adminNotes">
+                <column name="admin_notes" column-definition="text"/>
+            </basic>
+            <basic name="assignedTo">
+                <column name="assigned_to"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+            <basic name="closedAt">
+                <column name="closed_at"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="ResidentDocument" access="FIELD">
+        <table name="resident_documents"/>
+        <attributes>
+            <basic name="registrationId">
+                <column name="registration_id" nullable="false"/>
+            </basic>
+            <basic name="documentType">
+                <column name="document_type" nullable="false" length="40"/>
+            </basic>
+            <basic name="storageKey">
+                <column name="storage_key" nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="verificationStatus">
+                <column name="verification_status" nullable="false" length="20"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="ResidentRegistration" access="FIELD">
+        <table name="resident_registrations"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="flatId">
+                <column name="flat_id" nullable="false"/>
+            </basic>
+            <basic name="residentType">
+                <column name="resident_type" nullable="false" length="10"/>
+            </basic>
+            <basic name="fullName">
+                <column name="full_name" nullable="false" length="150"/>
+            </basic>
+            <basic name="mobile">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="email">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="dob">
+            </basic>
+            <basic name="gender">
+                <column length="20"/>
+            </basic>
+            <basic name="emergencyContact">
+                <column name="emergency_contact" length="20"/>
+            </basic>
+            <basic name="moveInDate">
+                <column name="move_in_date"/>
+            </basic>
+            <basic name="moveOutDate">
+                <column name="move_out_date"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="rejectionReason">
+                <column name="rejection_reason" column-definition="text"/>
+            </basic>
+            <basic name="invited">
+                <column nullable="false"/>
+            </basic>
+            <basic name="invitationTokenHash">
+                <column name="invitation_token_hash"/>
+            </basic>
+            <basic name="invitationExpiresAt">
+                <column name="invitation_expires_at"/>
+            </basic>
+            <basic name="submittedAt">
+                <column name="submitted_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="reviewedBy">
+                <column name="reviewed_by"/>
+            </basic>
+            <basic name="reviewedAt">
+                <column name="reviewed_at"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SetupCode" access="FIELD">
+        <table name="setup_codes"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="codeHash">
+                <column name="code_hash" nullable="false"/>
+            </basic>
+            <basic name="codeHint">
+                <column name="code_hint" nullable="false" length="40"/>
+            </basic>
+            <basic name="expiresAt">
+                <column name="expires_at" nullable="false"/>
+            </basic>
+            <basic name="maxActivations">
+                <column name="max_activations" nullable="false"/>
+            </basic>
+            <basic name="activationCount">
+                <column name="activation_count" nullable="false"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Society" access="FIELD">
+        <table name="societies"/>
+        <attributes>
+            <basic name="name">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="registrationNumber">
+                <column name="registration_number" nullable="false" unique="true" length="80"/>
+            </basic>
+            <basic name="societyCode">
+                <column name="society_code" nullable="false" unique="true" length="30"/>
+            </basic>
+            <basic name="societyType">
+                <column name="society_type" nullable="false" length="40"/>
+            </basic>
+            <basic name="totalBlocks">
+                <column name="total_blocks" nullable="false"/>
+            </basic>
+            <basic name="totalFlats">
+                <column name="total_flats" nullable="false"/>
+            </basic>
+            <basic name="approximateResidents">
+                <column name="approximate_residents"/>
+            </basic>
+            <basic name="plannedStaff">
+                <column name="planned_staff" nullable="false"/>
+            </basic>
+            <basic name="address">
+                <column nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="city">
+                <column nullable="false" length="80"/>
+            </basic>
+            <basic name="state">
+                <column nullable="false" length="80"/>
+            </basic>
+            <basic name="pinCode">
+                <column name="pin_code" nullable="false" length="10"/>
+            </basic>
+            <basic name="contactPerson">
+                <column name="contact_person" nullable="false" length="120"/>
+            </basic>
+            <basic name="email">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="mobile">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="planCode">
+                <column name="plan_code" nullable="false" length="20"/>
+            </basic>
+            <basic name="enabledModules">
+                <column name="enabled_modules" nullable="false" column-definition="jsonb"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="rejectionReason">
+                <column name="rejection_reason" column-definition="text"/>
+            </basic>
+            <basic name="registrationAccessHash">
+                <column name="registration_access_hash"/>
+            </basic>
+            <basic name="subscriptionStatus">
+                <column name="subscription_status" nullable="false" length="20"/>
+            </basic>
+            <basic name="subscriptionStartedAt">
+                <column name="subscription_started_at"/>
+            </basic>
+            <basic name="subscriptionExpiresAt">
+                <column name="subscription_expires_at"/>
+            </basic>
+            <basic name="subscriptionBillingCycle">
+                <column name="subscription_billing_cycle" nullable="false" length="20"/>
+            </basic>
+            <basic name="setupCompleted">
+                <column name="setup_completed" nullable="false"/>
+            </basic>
+            <basic name="description">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="website">
+            </basic>
+            <basic name="logoStorageKey">
+                <column name="logo_storage_key" column-definition="text"/>
+            </basic>
+            <basic name="logoContentType">
+                <column name="logo_content_type" length="50"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="approvedAt">
+                <column name="approved_at"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SocietyActivity" access="FIELD">
+        <table name="society_activities"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="activityCode">
+                <column name="activity_code" nullable="false" length="40"/>
+            </basic>
+            <basic name="title">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="category">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="description">
+                <column nullable="false" length="2000"/>
+            </basic>
+            <basic name="venue">
+                <column nullable="false" length="300"/>
+            </basic>
+            <basic name="startsAt">
+                <column name="starts_at" nullable="false"/>
+            </basic>
+            <basic name="endsAt">
+                <column name="ends_at" nullable="false"/>
+            </basic>
+            <basic name="registrationOpensAt">
+                <column name="registration_opens_at" nullable="false"/>
+            </basic>
+            <basic name="registrationClosesAt">
+                <column name="registration_closes_at" nullable="false"/>
+            </basic>
+            <basic name="capacity">
+            </basic>
+            <basic name="feePerPerson">
+                <column name="fee_per_person" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="approvalRequired">
+                <column name="approval_required" nullable="false"/>
+            </basic>
+            <basic name="cancellationHours">
+                <column name="cancellation_hours" nullable="false"/>
+            </basic>
+            <basic name="audience">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="organizerName">
+                <column name="organizer_name" length="150"/>
+            </basic>
+            <basic name="organizerMobile">
+                <column name="organizer_mobile" length="20"/>
+            </basic>
+            <basic name="instructions">
+                <column length="1000"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="cancellationReason">
+                <column name="cancellation_reason" length="500"/>
+            </basic>
+            <basic name="createdBy">
+                <column name="created_by" nullable="false"/>
+            </basic>
+            <basic name="publishedAt">
+                <column name="published_at"/>
+            </basic>
+            <basic name="completedAt">
+                <column name="completed_at"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SocietyBudget" access="FIELD">
+        <table name="society_budgets"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="budgetYear">
+                <column name="budget_year" nullable="false"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="14" scale="2"/>
+            </basic>
+            <basic name="updatedBy">
+                <column name="updated_by" nullable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SocietyBudgetAddition" access="FIELD">
+        <table name="society_budget_additions"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="budgetYear">
+                <column name="budget_year" nullable="false"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="14" scale="2"/>
+            </basic>
+            <basic name="note">
+                <column length="240"/>
+            </basic>
+            <basic name="addedBy">
+                <column name="added_by" nullable="false"/>
+            </basic>
+            <basic name="addedAt">
+                <column name="added_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SocietyCustomPlan" access="FIELD">
+        <table name="society_custom_plans"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="requirementId">
+                <column name="requirement_id"/>
+            </basic>
+            <basic name="planName">
+                <column name="plan_name" nullable="false" length="120"/>
+            </basic>
+            <basic name="description">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="enabledModules">
+                <column name="enabled_modules" nullable="false" column-definition="jsonb"/>
+            </basic>
+            <basic name="maxFlats">
+                <column name="max_flats"/>
+            </basic>
+            <basic name="maxStaff">
+                <column name="max_staff"/>
+            </basic>
+            <basic name="maxStorageGb">
+                <column name="max_storage_gb"/>
+            </basic>
+            <basic name="priceMonthly">
+                <column name="price_monthly" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="pricePerSpace">
+                <column name="price_per_space" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="pricePerStaff">
+                <column name="price_per_staff" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="setupFee">
+                <column name="setup_fee" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="billingCycle">
+                <column name="billing_cycle" nullable="false" length="20"/>
+            </basic>
+            <basic name="validFrom">
+                <column name="valid_from" nullable="false"/>
+            </basic>
+            <basic name="validUntil">
+                <column name="valid_until"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="createdBy">
+                <column name="created_by" nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="activatedAt">
+                <column name="activated_at"/>
+            </basic>
+            <basic name="cancelledAt">
+                <column name="cancelled_at"/>
+            </basic>
+            <basic name="cancelledBy">
+                <column name="cancelled_by"/>
+            </basic>
+            <basic name="cancellationReason">
+                <column name="cancellation_reason" length="300"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SocietyDocument" access="FIELD">
+        <table name="society_documents"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="documentType">
+                <column name="document_type" nullable="false" length="40"/>
+            </basic>
+            <basic name="storageKey">
+                <column name="storage_key" nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="verificationStatus">
+                <column name="verification_status" nullable="false" length="20"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SocietyExpense" access="FIELD">
+        <table name="society_expenses"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="category">
+                <column nullable="false" length="40"/>
+            </basic>
+            <basic name="vendor">
+                <column length="150"/>
+            </basic>
+            <basic name="description">
+                <column nullable="false" length="300"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="expenseDate">
+                <column name="expense_date" nullable="false"/>
+            </basic>
+            <basic name="paymentMethod">
+                <column name="payment_method" nullable="false" length="30"/>
+            </basic>
+            <basic name="paymentReference">
+                <column name="payment_reference" length="120"/>
+            </basic>
+            <basic name="createdBy">
+                <column name="created_by" nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SocietyPaymentSetting" access="FIELD">
+        <table name="society_payment_settings"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false" unique="true"/>
+            </basic>
+            <basic name="beneficiaryName">
+                <column name="beneficiary_name" nullable="false" length="150"/>
+            </basic>
+            <basic name="bankName">
+                <column name="bank_name" length="150"/>
+            </basic>
+            <basic name="accountNumber">
+                <column name="account_number" length="60"/>
+            </basic>
+            <basic name="ifscCode">
+                <column name="ifsc_code" length="20"/>
+            </basic>
+            <basic name="upiId">
+                <column name="upi_id" length="100"/>
+            </basic>
+            <basic name="razorpayKeyId">
+                <column name="razorpay_key_id" nullable="false" length="100"/>
+            </basic>
+            <basic name="testMode">
+                <column name="test_mode" nullable="false"/>
+            </basic>
+            <basic name="updatedBy">
+                <column name="updated_by"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SocietyStorageAccount" access="FIELD">
+        <table name="society_storage_accounts"/>
+        <attributes>
+            <id name="societyId">
+                <column name="society_id"/>
+            </id>
+            <basic name="purchasedBytes">
+                <column name="purchased_bytes" nullable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="StaffAttendance" access="FIELD">
+        <table name="staff_attendance"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="staffUserId">
+                <column name="staff_user_id" nullable="false"/>
+            </basic>
+            <basic name="attendanceDate">
+                <column name="attendance_date" nullable="false"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="checkIn">
+                <column name="check_in"/>
+            </basic>
+            <basic name="checkOut">
+                <column name="check_out"/>
+            </basic>
+            <basic name="note">
+                <column length="250"/>
+            </basic>
+            <basic name="markedBy">
+                <column name="marked_by" nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="StaffPermission" access="FIELD">
+        <table name="staff_permissions"/>
+        <id-class class="com.societyapp.domain.model.StaffPermissionId"/>
+        <attributes>
+            <id name="staffUserId">
+                <column name="staff_user_id"/>
+            </id>
+            <id name="permissionCode">
+                <column name="permission_code" length="80"/>
+            </id>
+            <basic name="grantedBy">
+                <column name="granted_by" nullable="false"/>
+            </basic>
+            <basic name="grantedAt">
+                <column name="granted_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="StaffProfile" access="FIELD">
+        <table name="staff_profiles"/>
+        <attributes>
+            <id name="userId">
+                <column name="user_id"/>
+            </id>
+            <basic name="staffType">
+                <column name="staff_type" nullable="false" length="40"/>
+            </basic>
+            <basic name="employeeCode">
+                <column name="employee_code" length="40"/>
+            </basic>
+            <basic name="dutyArea">
+                <column name="duty_area" length="100"/>
+            </basic>
+            <basic name="shiftName">
+                <column name="shift_name" length="60"/>
+            </basic>
+            <basic name="joinedOn">
+                <column name="joined_on" nullable="false"/>
+            </basic>
+            <basic name="dateOfBirth">
+                <column name="date_of_birth"/>
+            </basic>
+            <basic name="gender">
+                <column length="20"/>
+            </basic>
+            <basic name="alternateMobile">
+                <column name="alternate_mobile" length="20"/>
+            </basic>
+            <basic name="address">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="emergencyContactName">
+                <column name="emergency_contact_name" length="150"/>
+            </basic>
+            <basic name="emergencyContactMobile">
+                <column name="emergency_contact_mobile" length="20"/>
+            </basic>
+            <basic name="idType">
+                <column name="id_type" length="40"/>
+            </basic>
+            <basic name="idNumber">
+                <column name="id_number" length="80"/>
+            </basic>
+            <basic name="monthlySalary">
+                <column name="monthly_salary" precision="12" scale="2"/>
+            </basic>
+            <basic name="bankAccountName">
+                <column name="bank_account_name" length="150"/>
+            </basic>
+            <basic name="bankAccountNumber">
+                <column name="bank_account_number" length="40"/>
+            </basic>
+            <basic name="bankIfsc">
+                <column name="bank_ifsc" length="20"/>
+            </basic>
+            <basic name="upiId">
+                <column name="upi_id" length="100"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="StaffSalaryPayment" access="FIELD">
+        <table name="staff_salary_payments"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="staffUserId">
+                <column name="staff_user_id" nullable="false"/>
+            </basic>
+            <basic name="salaryMonth">
+                <column name="salary_month" nullable="false"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="paidOn">
+                <column name="paid_on" nullable="false"/>
+            </basic>
+            <basic name="paymentMethod">
+                <column name="payment_method" nullable="false" length="30"/>
+            </basic>
+            <basic name="referenceNumber">
+                <column name="reference_number" length="100"/>
+            </basic>
+            <basic name="note">
+                <column length="250"/>
+            </basic>
+            <basic name="recordedBy">
+                <column name="recorded_by" nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="StaffTask" access="FIELD">
+        <table name="staff_tasks"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="title">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="description">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="assignedTo">
+                <column name="assigned_to" nullable="false"/>
+            </basic>
+            <basic name="assignedBy">
+                <column name="assigned_by" nullable="false"/>
+            </basic>
+            <basic name="dueAt">
+                <column name="due_at"/>
+            </basic>
+            <basic name="priority">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="completionNote">
+                <column name="completion_note" column-definition="text"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="completedAt">
+                <column name="completed_at"/>
+            </basic>
+            <basic name="startedAt">
+                <column name="started_at"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="StaffTaskUpdate" access="FIELD">
+        <table name="staff_task_updates"/>
+        <attributes>
+            <basic name="taskId">
+                <column name="task_id" nullable="false"/>
+            </basic>
+            <basic name="actorUserId">
+                <column name="actor_user_id" nullable="false"/>
+            </basic>
+            <basic name="eventType">
+                <column name="event_type" nullable="false" length="30"/>
+            </basic>
+            <basic name="fromStatus">
+                <column name="from_status" length="20"/>
+            </basic>
+            <basic name="toStatus">
+                <column name="to_status" length="20"/>
+            </basic>
+            <basic name="note">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="StorageAddonPurchase" access="FIELD">
+        <table name="storage_addon_purchases"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="purchasedBy">
+                <column name="purchased_by" nullable="false"/>
+            </basic>
+            <basic name="blocks">
+                <column nullable="false"/>
+            </basic>
+            <basic name="blockSizeGb">
+                <column name="block_size_gb" nullable="false"/>
+            </basic>
+            <basic name="additionalBytes">
+                <column name="additional_bytes" nullable="false"/>
+            </basic>
+            <basic name="pricePerBlockMonthly">
+                <column name="price_per_block_monthly" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="monthlyAmount">
+                <column name="monthly_amount" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="cancelledAt">
+                <column name="cancelled_at"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="StorageObject" access="FIELD">
+        <table name="storage_objects"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="storageKey">
+                <column name="storage_key" nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="category">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="originalFilename">
+                <column name="original_filename" length="255"/>
+            </basic>
+            <basic name="contentType">
+                <column name="content_type" length="100"/>
+            </basic>
+            <basic name="sizeBytes">
+                <column name="size_bytes" nullable="false"/>
+            </basic>
+            <basic name="sourceType">
+                <column name="source_type" nullable="false" length="40"/>
+            </basic>
+            <basic name="sourceId">
+                <column name="source_id"/>
+            </basic>
+            <basic name="displayName">
+                <column name="display_name" length="255"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="deletedAt">
+                <column name="deleted_at"/>
+            </basic>
+            <basic name="deletedBy">
+                <column name="deleted_by"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="StoragePolicy" access="FIELD">
+        <table name="storage_policies"/>
+        <attributes>
+            <id name="id"/>
+            <basic name="defaultFreeGb">
+                <column name="default_free_gb" nullable="false"/>
+            </basic>
+            <basic name="purchaseBlockGb">
+                <column name="purchase_block_gb" nullable="false"/>
+            </basic>
+            <basic name="pricePerBlockMonthly">
+                <column name="price_per_block_monthly" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="updatedBy">
+                <column name="updated_by"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SubscriptionOrder" access="FIELD">
+        <table name="subscription_orders"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="invoiceNumber">
+                <column name="invoice_number" nullable="false" length="50"/>
+            </basic>
+            <basic name="billingMonth">
+                <column name="billing_month" nullable="false"/>
+            </basic>
+            <basic name="dueDate">
+                <column name="due_date" nullable="false"/>
+            </basic>
+            <basic name="billingCycle">
+                <column name="billing_cycle" nullable="false" length="20"/>
+            </basic>
+            <basic name="periodStart">
+                <column name="period_start" nullable="false"/>
+            </basic>
+            <basic name="periodEnd">
+                <column name="period_end" nullable="false"/>
+            </basic>
+            <basic name="planCode">
+                <column name="plan_code" nullable="false" length="20"/>
+            </basic>
+            <basic name="amount">
+                <column nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="currency">
+                <column nullable="false" length="3"/>
+            </basic>
+            <basic name="provider">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="providerReference">
+                <column name="provider_reference" length="120"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="paidAt">
+                <column name="paid_at"/>
+            </basic>
+            <basic name="paymentMethod">
+                <column name="payment_method" length="30"/>
+            </basic>
+            <basic name="paymentNote">
+                <column name="payment_note" length="300"/>
+            </basic>
+            <basic name="submittedAt">
+                <column name="submitted_at"/>
+            </basic>
+            <basic name="reviewedAt">
+                <column name="reviewed_at"/>
+            </basic>
+            <basic name="reviewedBy">
+                <column name="reviewed_by"/>
+            </basic>
+            <basic name="rejectionReason">
+                <column name="rejection_reason" length="300"/>
+            </basic>
+            <basic name="pricingBreakdown">
+                <column name="pricing_breakdown" nullable="false" column-definition="jsonb"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SubscriptionPlan" access="FIELD">
+        <table name="subscription_plans"/>
+        <attributes>
+            <id name="code">
+                <column length="20"/>
+            </id>
+            <basic name="name">
+                <column nullable="false" length="50"/>
+            </basic>
+            <basic name="approvalMode">
+                <column name="approval_mode" nullable="false" length="10"/>
+            </basic>
+            <basic name="maxFlats">
+                <column name="max_flats"/>
+            </basic>
+            <basic name="priceMonthly">
+                <column name="price_monthly" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="pricePerSpace">
+                <column name="price_per_space" nullable="false" precision="12" scale="2"/>
+            </basic>
+            <basic name="trialDurationMonths">
+                <column name="trial_duration_months" nullable="false"/>
+            </basic>
+            <basic name="trialDurationValue">
+                <column name="trial_duration_value" nullable="false"/>
+            </basic>
+            <basic name="trialDurationUnit">
+                <column name="trial_duration_unit" nullable="false" length="10"/>
+            </basic>
+            <basic name="maxStaff">
+                <column name="max_staff"/>
+            </basic>
+            <basic name="pricePerStaff">
+                <column name="price_per_staff" nullable="false" precision="12" scale="2"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SupportTicket" access="FIELD">
+        <table name="support_tickets"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id"/>
+            </basic>
+            <basic name="createdBy">
+                <column name="created_by"/>
+            </basic>
+            <basic name="subject">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="description">
+                <column nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="priority">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="assignedTo">
+                <column name="assigned_to"/>
+            </basic>
+            <basic name="resolution">
+                <column column-definition="text"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+            <basic name="closedAt">
+                <column name="closed_at"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="SupportTicketMessage" access="FIELD">
+        <table name="support_ticket_messages"/>
+        <attributes>
+            <basic name="ticketId">
+                <column name="ticket_id" nullable="false"/>
+            </basic>
+            <basic name="senderId">
+                <column name="sender_id" nullable="false"/>
+            </basic>
+            <basic name="message">
+                <column nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="messageType">
+                <column name="message_type" nullable="false" length="20"/>
+            </basic>
+            <basic name="attachmentKey">
+                <column name="attachment_key" column-definition="text"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="readAt">
+                <column name="read_at"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="UserAccount" access="FIELD">
+        <table name="users"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id"/>
+            </basic>
+            <basic name="fullName">
+                <column name="full_name" nullable="false" length="150"/>
+            </basic>
+            <basic name="email">
+                <column nullable="false" unique="true" length="180"/>
+            </basic>
+            <basic name="mobile">
+                <column length="20"/>
+            </basic>
+            <basic name="passwordHash">
+                <column name="password_hash" nullable="false"/>
+            </basic>
+            <basic name="role">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="emailVerified">
+                <column name="email_verified" nullable="false"/>
+            </basic>
+            <basic name="mobileVerified">
+                <column name="mobile_verified" nullable="false"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Vendor" access="FIELD">
+        <table name="vendors"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="name">
+                <column nullable="false" length="150"/>
+            </basic>
+            <basic name="serviceType">
+                <column name="service_type" nullable="false" length="80"/>
+            </basic>
+            <basic name="contactPerson">
+                <column name="contact_person" length="120"/>
+            </basic>
+            <basic name="mobile">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="email">
+                <column length="180"/>
+            </basic>
+            <basic name="gstNumber">
+                <column name="gst_number" length="30"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="20"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+            <basic name="updatedAt">
+                <column name="updated_at" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="VerificationChallenge" access="FIELD">
+        <table name="verification_challenges"/>
+        <attributes>
+            <basic name="userId">
+                <column name="user_id" nullable="false"/>
+            </basic>
+            <basic name="channel">
+                <column nullable="false" length="10"/>
+            </basic>
+            <basic name="destination">
+                <column nullable="false" length="180"/>
+            </basic>
+            <basic name="codeHash">
+                <column name="code_hash" nullable="false"/>
+            </basic>
+            <basic name="expiresAt">
+                <column name="expires_at" nullable="false"/>
+            </basic>
+            <basic name="attempts">
+                <column nullable="false"/>
+            </basic>
+            <basic name="verifiedAt">
+                <column name="verified_at"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="Visitor" access="FIELD">
+        <table name="visitors"/>
+        <attributes>
+            <basic name="societyId">
+                <column name="society_id" nullable="false"/>
+            </basic>
+            <basic name="flatId">
+                <column name="flat_id"/>
+            </basic>
+            <basic name="visitorName">
+                <column name="visitor_name" nullable="false" length="150"/>
+            </basic>
+            <basic name="mobile">
+                <column length="20"/>
+            </basic>
+            <basic name="purpose">
+                <column length="150"/>
+            </basic>
+            <basic name="vehicleNumber">
+                <column name="vehicle_number" length="30"/>
+            </basic>
+            <basic name="expectedAt">
+                <column name="expected_at"/>
+            </basic>
+            <basic name="approvedBy">
+                <column name="approved_by"/>
+            </basic>
+            <basic name="hostResidentId">
+                <column name="host_resident_id"/>
+            </basic>
+            <basic name="accompanyingMembers">
+                <column name="accompanying_members" nullable="false"/>
+            </basic>
+            <basic name="photoStorageKey">
+                <column name="photo_storage_key" column-definition="text"/>
+            </basic>
+            <basic name="photoContentType">
+                <column name="photo_content_type" length="50"/>
+            </basic>
+            <basic name="residentDecisionAt">
+                <column name="resident_decision_at"/>
+            </basic>
+            <basic name="targetType">
+                <column name="target_type" nullable="false" length="30"/>
+            </basic>
+            <basic name="targetUserId">
+                <column name="target_user_id"/>
+            </basic>
+            <basic name="targetName">
+                <column name="target_name" length="150"/>
+            </basic>
+            <basic name="staffApprovedBy">
+                <column name="staff_approved_by"/>
+            </basic>
+            <basic name="approvalMethod">
+                <column name="approval_method" length="30"/>
+            </basic>
+            <basic name="approvalNote">
+                <column name="approval_note" length="250"/>
+            </basic>
+            <basic name="checkedInBy">
+                <column name="checked_in_by"/>
+            </basic>
+            <basic name="checkedInAt">
+                <column name="checked_in_at"/>
+            </basic>
+            <basic name="checkedOutAt">
+                <column name="checked_out_at"/>
+            </basic>
+            <basic name="status">
+                <column nullable="false" length="30"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    <entity class="VisitorPhoto" access="FIELD">
+        <table name="visitor_photos"/>
+        <attributes>
+            <basic name="visitorId">
+                <column name="visitor_id" nullable="false"/>
+            </basic>
+            <basic name="storageKey">
+                <column name="storage_key" nullable="false" column-definition="text"/>
+            </basic>
+            <basic name="contentType">
+                <column name="content_type" length="50"/>
+            </basic>
+            <basic name="createdAt">
+                <column name="created_at" nullable="false" updatable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

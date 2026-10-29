@@ -1,0 +1,1945 @@
+{
+  "generated_at": "2026-07-29T13:29:30.875423+00:00",
+  "base_url": "http://127.0.0.1:61641",
+  "total": 151,
+  "passed": 151,
+  "failed": 0,
+  "slowest": [
+    {
+      "id": "SUPER_ADMIN-LOAD-05",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/services",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 296.6,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-03",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/societies",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 260.8,
+      "detail": null
+    },
+    {
+      "id": "FLOW-ONBOARD-REGISTER-TRIAL",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/public/societies/register",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 193.9,
+      "detail": null
+    },
+    {
+      "id": "FLOW-STAFF-CREATE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/society/staff",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 185.4,
+      "detail": null
+    },
+    {
+      "id": "FLOW-ONBOARD-ACTIVATE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/public/societies/activate",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 178.5,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-34",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/deliveries",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 140.6,
+      "detail": null
+    },
+    {
+      "id": "AUTH-SUPER_ADMIN-LOGIN",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 140.0,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-35",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/emergencies",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 137.1,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-27",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 128.5,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-09",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/staff",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 122.8,
+      "detail": null
+    }
+  ],
+  "results": [
+    {
+      "id": "AUTH-INVALID-CREDENTIALS",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        401
+      ],
+      "actual": 401,
+      "elapsed_ms": 62.0,
+      "detail": null
+    },
+    {
+      "id": "AUTH-LOGOUT",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/logout",
+      "expected": [
+        204
+      ],
+      "actual": 204,
+      "elapsed_ms": 7.6,
+      "detail": null
+    },
+    {
+      "id": "AUTH-LOGOUT-REVOKED",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/refresh",
+      "expected": [
+        401
+      ],
+      "actual": 401,
+      "elapsed_ms": 6.0,
+      "detail": null
+    },
+    {
+      "id": "AUTH-MEMBER-LOGIN",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 90.3,
+      "detail": null
+    },
+    {
+      "id": "AUTH-ROTATION-LOGIN",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 91.3,
+      "detail": null
+    },
+    {
+      "id": "AUTH-ROTATION-REFRESH",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/refresh",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 31.4,
+      "detail": null
+    },
+    {
+      "id": "AUTH-ROTATION-REUSE-BLOCKED",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/refresh",
+      "expected": [
+        401
+      ],
+      "actual": 401,
+      "elapsed_ms": 12.5,
+      "detail": null
+    },
+    {
+      "id": "AUTH-SOCIETY_ADMIN-LOGIN",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 92.1,
+      "detail": null
+    },
+    {
+      "id": "AUTH-STAFF-LOGIN",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 94.7,
+      "detail": null
+    },
+    {
+      "id": "AUTH-SUPER_ADMIN-LOGIN",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 140.0,
+      "detail": null
+    },
+    {
+      "id": "FLOW-COMPLAINT-ASSIGN",
+      "passed": true,
+      "method": "PATCH",
+      "path": "/api/complaints/dd341e90-8ba4-4105-aaa1-d08aee70b1ae",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 21.3,
+      "detail": null
+    },
+    {
+      "id": "FLOW-COMPLAINT-MEMBER-COMMENT",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/complaints/dd341e90-8ba4-4105-aaa1-d08aee70b1ae/comments",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 21.6,
+      "detail": null
+    },
+    {
+      "id": "FLOW-COMPLAINT-MEMBER-CREATE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/complaints",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 23.1,
+      "detail": null
+    },
+    {
+      "id": "FLOW-COMPLAINT-STAFF-RESOLVE",
+      "passed": true,
+      "method": "PATCH",
+      "path": "/api/complaints/dd341e90-8ba4-4105-aaa1-d08aee70b1ae",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 20.0,
+      "detail": null
+    },
+    {
+      "id": "FLOW-COMPLAINT-STAFF-START",
+      "passed": true,
+      "method": "PATCH",
+      "path": "/api/complaints/dd341e90-8ba4-4105-aaa1-d08aee70b1ae",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 18.4,
+      "detail": null
+    },
+    {
+      "id": "FLOW-CUSTOM-PLAN-CANCEL",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/admin/platform/custom-plans/03314a91-15e1-422b-9094-c13ecad353ef/cancel",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 12.2,
+      "detail": null
+    },
+    {
+      "id": "FLOW-CUSTOM-PLAN-CANCEL-TWICE-BLOCKED",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/admin/platform/custom-plans/03314a91-15e1-422b-9094-c13ecad353ef/cancel",
+      "expected": [
+        400,
+        409
+      ],
+      "actual": 409,
+      "elapsed_ms": 6.0,
+      "detail": null
+    },
+    {
+      "id": "FLOW-CUSTOM-PLAN-CREATE-DRAFT",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/admin/platform/custom-plans",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 24.4,
+      "detail": null
+    },
+    {
+      "id": "FLOW-EMERGENCY-OPTIONS",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/emergencies",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 18.0,
+      "detail": null
+    },
+    {
+      "id": "FLOW-EMERGENCY-REPORT",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/emergencies",
+      "expected": [
+        201
+      ],
+      "actual": 201,
+      "elapsed_ms": 29.4,
+      "detail": null
+    },
+    {
+      "id": "FLOW-EMERGENCY-STAFF-ACKNOWLEDGE",
+      "passed": true,
+      "method": "PATCH",
+      "path": "/api/emergencies/0d25f443-0af3-4a80-9c5d-0452cd6cec95",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 20.4,
+      "detail": null
+    },
+    {
+      "id": "FLOW-EMERGENCY-STAFF-RESOLVE",
+      "passed": true,
+      "method": "PATCH",
+      "path": "/api/emergencies/0d25f443-0af3-4a80-9c5d-0452cd6cec95",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 24.0,
+      "detail": null
+    },
+    {
+      "id": "FLOW-INACTIVE-SOCIETY-LOGIN-MESSAGE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        401
+      ],
+      "actual": 401,
+      "elapsed_ms": 84.7,
+      "detail": null
+    },
+    {
+      "id": "FLOW-INACTIVE-SOCIETY-SUSPEND",
+      "passed": true,
+      "method": "PUT",
+      "path": "/api/admin/platform/societies/275701f6-07ef-42b8-b88d-d631ddd509cf",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 22.3,
+      "detail": null
+    },
+    {
+      "id": "FLOW-INVOICE-CANCEL-A",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/admin/platform/orders/700e8894-faca-4ca4-9028-124f8bf26b47/cancel",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 12.7,
+      "detail": null
+    },
+    {
+      "id": "FLOW-INVOICE-CANCEL-B",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/admin/platform/orders/c34d4a9a-ea61-41c2-b823-279f2eb5b18a/cancel",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 11.5,
+      "detail": null
+    },
+    {
+      "id": "FLOW-INVOICE-ISSUE-A",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/admin/platform/orders",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 36.9,
+      "detail": null
+    },
+    {
+      "id": "FLOW-INVOICE-ISSUE-B",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/admin/platform/orders",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 35.6,
+      "detail": null
+    },
+    {
+      "id": "FLOW-NOTICE-ACKNOWLEDGE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/notices/8140b51e-763d-4a00-8a41-b36d163c11e4/acknowledge",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 12.9,
+      "detail": null
+    },
+    {
+      "id": "FLOW-NOTICE-MEMBER-SEES",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/notices",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 12.3,
+      "detail": null
+    },
+    {
+      "id": "FLOW-NOTICE-PUBLISH",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/notices",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 17.0,
+      "detail": null
+    },
+    {
+      "id": "FLOW-NOTICE-READ",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/notices/8140b51e-763d-4a00-8a41-b36d163c11e4/read",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 15.2,
+      "detail": null
+    },
+    {
+      "id": "FLOW-ONBOARD-ACTIVATE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/public/societies/activate",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 178.5,
+      "detail": null
+    },
+    {
+      "id": "FLOW-ONBOARD-ADMIN-LOGIN",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 89.2,
+      "detail": null
+    },
+    {
+      "id": "FLOW-ONBOARD-ONE-TIME-CODE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/public/societies/activate",
+      "expected": [
+        400,
+        409
+      ],
+      "actual": 400,
+      "elapsed_ms": 6.7,
+      "detail": null
+    },
+    {
+      "id": "FLOW-ONBOARD-REGISTER-TRIAL",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/public/societies/register",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 193.9,
+      "detail": null
+    },
+    {
+      "id": "FLOW-RESIDENT-APPROVE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/society/residents/55cc2c3f-e7dd-49e4-b9d1-9effbd866bf3/review",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 93.9,
+      "detail": null
+    },
+    {
+      "id": "FLOW-RESIDENT-LOGIN",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 96.3,
+      "detail": null
+    },
+    {
+      "id": "FLOW-RESIDENT-SELF-REGISTER",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/public/residents/register",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 15.6,
+      "detail": null
+    },
+    {
+      "id": "FLOW-SETUP-CREATE-BLOCK",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/society/structure/blocks",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 13.4,
+      "detail": null
+    },
+    {
+      "id": "FLOW-SETUP-CREATE-SECTION",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/society/structure/blocks/f874fafb-f520-4d45-b7f8-72e2e6aac975/sections",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 15.6,
+      "detail": null
+    },
+    {
+      "id": "FLOW-SETUP-CREATE-SPACE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/society/structure/sections/e747e622-df72-4182-ace3-8e37e3ed2229/spaces",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 24.0,
+      "detail": null
+    },
+    {
+      "id": "FLOW-STAFF-CREATE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/society/staff",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 185.4,
+      "detail": null
+    },
+    {
+      "id": "FLOW-STAFF-LOGIN",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/auth/login",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 90.6,
+      "detail": null
+    },
+    {
+      "id": "FLOW-STAFF-PERMISSIONS",
+      "passed": true,
+      "method": "PUT",
+      "path": "/api/society/staff/f775841a-9181-4fa4-89a2-afe2d156a616/permissions",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 29.5,
+      "detail": null
+    },
+    {
+      "id": "FLOW-SUPPORT-CREATE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/support",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 18.4,
+      "detail": null
+    },
+    {
+      "id": "FLOW-SUPPORT-RESOLVE",
+      "passed": true,
+      "method": "PATCH",
+      "path": "/api/admin/platform/support/b31d7996-1037-4342-a22a-030507343f1f",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 12.3,
+      "detail": null
+    },
+    {
+      "id": "FLOW-SUPPORT-SOCIETY-MESSAGE",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/support/b31d7996-1037-4342-a22a-030507343f1f/messages",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 17.4,
+      "detail": null
+    },
+    {
+      "id": "FLOW-SUPPORT-SUPER-REPLY",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/support/b31d7996-1037-4342-a22a-030507343f1f/messages",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 11.3,
+      "detail": null
+    },
+    {
+      "id": "FLOW-SUPPORT-SUPER-SEES-TICKET",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/support",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 37.6,
+      "detail": null
+    },
+    {
+      "id": "FLOW-VISITOR-CANCEL",
+      "passed": true,
+      "method": "PATCH",
+      "path": "/api/visitors/dfe77922-c760-4697-836d-21d32e47e949/cancel",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 14.2,
+      "detail": null
+    },
+    {
+      "id": "FLOW-VISITOR-MEMBER-OPTIONS",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors/member-options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 12.3,
+      "detail": null
+    },
+    {
+      "id": "FLOW-VISITOR-PRE-REGISTER",
+      "passed": true,
+      "method": "POST",
+      "path": "/api/visitors",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 17.9,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-01",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/auth/me",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 38.0,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-02",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/dashboard/society",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 85.6,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-03",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/member/profile",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 60.4,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-04",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/configuration/reference",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 40.6,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-05",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/invoices",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 59.2,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-06",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/payments",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 22.1,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-07",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/complaints",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 21.9,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-08",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/complaints/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 69.0,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-09",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 36.5,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-10",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors/member-options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 62.5,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-11",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/notices",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 33.3,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-12",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/notices/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 37.6,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-13",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/amenities",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 33.1,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-14",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/amenities/bookings",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 35.1,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-15",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/activities",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 44.2,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-16",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/households",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 48.2,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-17",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/deliveries",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 56.4,
+      "detail": null
+    },
+    {
+      "id": "MEMBER-LOAD-18",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/emergencies",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 51.9,
+      "detail": null
+    },
+    {
+      "id": "PUBLIC-01",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/public/plans",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 13.5,
+      "detail": null
+    },
+    {
+      "id": "PUBLIC-02",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/public/services",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 19.6,
+      "detail": null
+    },
+    {
+      "id": "PUBLIC-03",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/public/societies",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 12.7,
+      "detail": null
+    },
+    {
+      "id": "ROLE-MEMBER-CANNOT-LIST-RESIDENTS",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/residents",
+      "expected": [
+        403
+      ],
+      "actual": 403,
+      "elapsed_ms": 10.4,
+      "detail": null
+    },
+    {
+      "id": "ROLE-STAFF-CANNOT-LIST-ALL-STAFF",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/staff",
+      "expected": [
+        403
+      ],
+      "actual": 403,
+      "elapsed_ms": 11.5,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-01",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/auth/me",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 34.2,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-02",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/dashboard/society",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 99.5,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-03",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/profile",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 43.4,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-04",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/subscription",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 96.1,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-05",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/subscription/orders",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 29.1,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-06",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/structure",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 57.3,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-07",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/residents",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 37.6,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-08",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/residents/pending",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 38.5,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-09",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/staff",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 122.8,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-10",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/configuration",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 122.8,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-11",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/documents",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 45.1,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-12",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/storage",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 60.8,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-13",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/audit",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 70.8,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-14",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/tasks",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 33.3,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-15",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/tasks/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 46.4,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-16",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 14.8,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-17",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors/hosts",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 81.4,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-18",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors/targets",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 31.7,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-19",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/complaints",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 33.2,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-20",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/complaints/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 70.7,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-21",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/notices",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 61.1,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-22",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/notices/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 13.4,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-23",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/amenities",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 48.9,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-24",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/amenities/bookings",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 41.4,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-25",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/invoices",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 42.1,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-26",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/payments",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 42.5,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-27",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 128.5,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-28",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/finance-summary",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 56.5,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-29",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/charge-settings",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 33.1,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-30",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/expenses",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 24.6,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-31",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/staff-salaries",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 39.2,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-32",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/activities",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 41.1,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-33",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/households",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 63.9,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-34",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/deliveries",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 140.6,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-35",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/emergencies",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 137.1,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-36",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/support",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 36.6,
+      "detail": null
+    },
+    {
+      "id": "SOCIETY_ADMIN-LOAD-37",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/configuration/reference",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 54.1,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-01",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/auth/me",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 40.9,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-02",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/dashboard/society",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 58.7,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-03",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/staff/me",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 42.1,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-04",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/society/staff/me/attendance",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 47.0,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-05",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/configuration/reference",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 59.1,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-06",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/tasks",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 37.9,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-07",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/tasks/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 40.2,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-08",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 30.6,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-09",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors/permissions",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 32.5,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-10",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors/hosts",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 60.8,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-11",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/visitors/targets",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 31.5,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-12",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/complaints",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 34.0,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-13",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/complaints/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 94.1,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-14",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/notices",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 40.1,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-15",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/notices/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 22.2,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-16",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/amenities",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 25.8,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-17",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/amenities/bookings",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 39.7,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-18",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/invoices",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 28.7,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-19",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/payments",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 32.1,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-20",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/billing/options",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 69.3,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-21",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/activities",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 46.0,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-22",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/households",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 62.6,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-23",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/deliveries",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 114.5,
+      "detail": null
+    },
+    {
+      "id": "STAFF-LOAD-24",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/emergencies",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 100.9,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-01",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/auth/me",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 55.4,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-02",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/dashboard",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 106.3,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-03",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/societies",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 260.8,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-04",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/plans",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 64.4,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-05",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/services",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 296.6,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-06",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/orders",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 59.2,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-07",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/payment-gateway",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 49.4,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-08",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/notifications",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 91.5,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-09",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/requirements",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 51.9,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-10",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/custom-plans",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 47.0,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-11",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/storage",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 92.9,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-12",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/support",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 79.5,
+      "detail": null
+    },
+    {
+      "id": "SUPER_ADMIN-LOAD-13",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/audit",
+      "expected": [
+        200
+      ],
+      "actual": 200,
+      "elapsed_ms": 59.6,
+      "detail": null
+    },
+    {
+      "id": "TENANT-SOCIETY-CANNOT-OPEN-PLATFORM",
+      "passed": true,
+      "method": "GET",
+      "path": "/api/admin/platform/dashboard",
+      "expected": [
+        403
+      ],
+      "actual": 403,
+      "elapsed_ms": 12.4,
+      "detail": null
+    }
+  ]
+}

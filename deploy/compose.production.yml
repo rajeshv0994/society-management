@@ -1,0 +1,28 @@
+services:
+  backend:
+    image: ${BACKEND_IMAGE:?BACKEND_IMAGE is required}
+    restart: unless-stopped
+    env_file:
+      - ${APP_ENV_FILE:-.env}
+    environment:
+      SPRING_PROFILES_ACTIVE: production
+      SEED_DEMO_DATA: "false"
+      UPLOADS_DIRECTORY: /data/uploads
+      SERVER_FORWARD_HEADERS_STRATEGY: framework
+    volumes:
+      - ./uploads:/data/uploads
+    networks:
+      - internal
+
+  web:
+    image: ${WEB_IMAGE:?WEB_IMAGE is required}
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "${WEB_BIND_ADDRESS:-0.0.0.0}:${WEB_PORT:-80}:80"
+    networks:
+      - internal
+
+networks:
+  internal:

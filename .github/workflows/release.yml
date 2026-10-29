@@ -1,0 +1,251 @@
+name: Release and deploy
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: GitHub environment containing deployment configuration
+        required: true
+        type: choice
+        options: [staging, production]
+        default: staging
+      deploy:
+        description: Deploy after publishing the images
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: deploy-${{ inputs.environment || 'production' }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    uses: ./.github/workflows/ci.yml
+
+  publish-backend:
+    name: Publish backend image
+    needs: verify
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.names.outputs.backend_ref }}
+    steps:
+      - uses: actions/checkout@v6
+      - id: names
+        name: Resolve immutable image name
+        shell: bash
+        run: |
+          owner="${GITHUB_REPOSITORY_OWNER,,}"
+          release_tag="${GITHUB_REF_NAME//\//-}"
+          {
+            echo "backend=ghcr.io/${owner}/societyhub-backend"
+            echo "backend_ref=ghcr.io/${owner}/societyhub-backend:sha-${GITHUB_SHA}"
+            echo "release_tag=${release_tag}"
+          } >> "$GITHUB_OUTPUT"
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/setup-buildx-action@v4
+      - name: Build and publish backend
+        uses: docker/build-push-action@v7
+        with:
+          context: backend
+          file: backend/Dockerfile
+          push: true
+          tags: |
+            ${{ steps.names.outputs.backend }}:sha-${{ github.sha }}
+            ${{ steps.names.outputs.backend }}:${{ steps.names.outputs.release_tag }}
+          cache-from: type=gha,scope=backend
+          cache-to: type=gha,mode=max,scope=backend
+
+  build-web:
+    name: Build deployable web bundle (${{ matrix.name }})
+    needs: verify
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'production' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: frontend
+            path: frontend
+            base_href: /
+          - name: super-admin
+            path: apps/super_admin
+            base_href: /super-admin/
+          - name: society-admin
+            path: apps/society_admin
+            base_href: /society-admin/
+          - name: staff
+            path: apps/staff
+            base_href: /staff/
+          - name: member
+            path: apps/member
+            base_href: /member/
+    steps:
+      - uses: actions/checkout@v6
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.41.9
+          channel: stable
+          cache: true
+      - working-directory: ${{ matrix.path }}
+        run: flutter pub get
+      - name: Build environment-specific bundle
+        working-directory: ${{ matrix.path }}
+        env:
+          PUBLIC_ORIGIN: ${{ vars.PUBLIC_WEB_BASE_URL }}
+          API_ORIGIN: ${{ vars.PUBLIC_API_BASE_URL }}
+        run: >-
+          flutter build web --release
+          --base-href "${{ matrix.base_href }}"
+          --dart-define=API_BASE_URL="${API_ORIGIN}"
+          --dart-define=SUPER_ADMIN_APP_URL="${PUBLIC_ORIGIN}/super-admin/"
+          --dart-define=SOCIETY_ADMIN_APP_URL="${PUBLIC_ORIGIN}/society-admin/"
+          --dart-define=STAFF_APP_URL="${PUBLIC_ORIGIN}/staff/"
+          --dart-define=MEMBER_APP_URL="${PUBLIC_ORIGIN}/member/"
+      - name: Preserve bundle permissions and paths
+        run: tar -C "${{ matrix.path }}/build/web" -czf "${{ matrix.name }}.tar.gz" .
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-web-${{ matrix.name }}
+          path: ${{ matrix.name }}.tar.gz
+          if-no-files-found: error
+          retention-days: 30
+
+  publish-web:
+    name: Publish combined web image
+    needs: [verify, build-web]
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.names.outputs.web_ref }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v6
+        with:
+          pattern: release-web-*
+          path: artifacts
+          merge-multiple: true
+      - name: Assemble web root
+        run: |
+          mkdir -p dist/frontend dist/super-admin dist/society-admin dist/staff dist/member
+          for app in frontend super-admin society-admin staff member; do
+            tar -xzf "artifacts/${app}.tar.gz" -C "dist/${app}"
+          done
+      - id: names
+        name: Resolve immutable image name
+        shell: bash
+        run: |
+          owner="${GITHUB_REPOSITORY_OWNER,,}"
+          release_tag="${GITHUB_REF_NAME//\//-}"
+          {
+            echo "web=ghcr.io/${owner}/societyhub-web"
+            echo "web_ref=ghcr.io/${owner}/societyhub-web:sha-${GITHUB_SHA}"
+            echo "release_tag=${release_tag}"
+          } >> "$GITHUB_OUTPUT"
+      - uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/setup-buildx-action@v4
+      - name: Build and publish web server
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: deploy/web.Dockerfile
+          push: true
+          tags: |
+            ${{ steps.names.outputs.web }}:sha-${{ github.sha }}
+            ${{ steps.names.outputs.web }}:${{ steps.names.outputs.release_tag }}
+          cache-from: type=gha,scope=web
+          cache-to: type=gha,mode=max,scope=web
+
+  deploy:
+    name: Deploy immutable images
+    needs: [publish-backend, publish-web]
+    if: ${{ (github.event_name == 'workflow_dispatch' && inputs.deploy) || (github.event_name == 'push' && vars.ENABLE_SSH_DEPLOY == 'true') }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment || 'production' }}
+    steps:
+      - uses: actions/checkout@v6
+      - name: Validate deployment configuration
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          test -n "$DEPLOY_HOST"
+          test -n "$DEPLOY_USER"
+          test -n "$DEPLOY_SSH_KEY"
+      - name: Configure SSH
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p "$DEPLOY_PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+      - name: Install production compose definition
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          DEPLOY_ROOT: ${{ vars.DEPLOY_ROOT || '/opt/societyhub' }}
+        run: |
+          ssh -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" "mkdir -p '$DEPLOY_ROOT'"
+          scp -P "$DEPLOY_PORT" deploy/compose.production.yml \
+            "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_ROOT/compose.production.yml"
+      - name: Authenticate deployment host to GHCR
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printf '%s' "$GHCR_TOKEN" | ssh -p "$DEPLOY_PORT" \
+            "$DEPLOY_USER@$DEPLOY_HOST" \
+            "docker login ghcr.io -u '${{ github.actor }}' --password-stdin"
+      - name: Pull and roll out
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          DEPLOY_ROOT: ${{ vars.DEPLOY_ROOT || '/opt/societyhub' }}
+          BACKEND_IMAGE: ${{ needs.publish-backend.outputs.image }}
+          WEB_IMAGE: ${{ needs.publish-web.outputs.image }}
+        run: |
+          ssh -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "cd '$DEPLOY_ROOT' && if test -f .release.env; then cp .release.env .release.previous.env; fi && printf 'BACKEND_IMAGE=%s\nWEB_IMAGE=%s\n' '$BACKEND_IMAGE' '$WEB_IMAGE' > .release.env && docker compose --env-file .env --env-file .release.env -f compose.production.yml pull && docker compose --env-file .env --env-file .release.env -f compose.production.yml up -d --remove-orphans"
+      - name: Verify deployed health endpoint
+        env:
+          HEALTHCHECK_URL: ${{ vars.HEALTHCHECK_URL }}
+        run: |
+          test -n "$HEALTHCHECK_URL"
+          for _ in $(seq 1 30); do
+            if curl --fail --silent --show-error "$HEALTHCHECK_URL"; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
+      - name: Roll back after a failed deployment
+        if: failure()
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT || '22' }}
+          DEPLOY_ROOT: ${{ vars.DEPLOY_ROOT || '/opt/societyhub' }}
+        run: |
+          ssh -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "cd '$DEPLOY_ROOT' && if test -f .release.previous.env; then cp .release.previous.env .release.env && docker compose --env-file .env --env-file .release.env -f compose.production.yml pull && docker compose --env-file .env --env-file .release.env -f compose.production.yml up -d --remove-orphans; fi"

@@ -1,0 +1,54 @@
+Running `(cd /Users/drmac/.pub-cache/hosted/pub.dev/objective_c-9.5.0/; ANDROID_HOME=/Users/drmac/Library/Android/sdk TMPDIR=/var/folders/8b/k14lgn094139s9vs9c375k6w0000gn/T/ PATH=/Users/drmac/.nvm/versions/node/v20.20.1/bin:/Users/drmac/.rbenv/shims:/Users/drmac/.rbenv/shims:/Users/drmac/.rbenv/shims:/Users/drmac/.rbenv/shims:/opt/homebrew/opt/ruby/bin:/Users/drmac/Library/Android/sdk/emulator:/Users/drmac/Library/Android/sdk/tools:/Users/drmac/Library/Android/sdk/tools/bin:/Users/drmac/Library/Android/sdk/platform-tools:/Users/drmac/Library/Android/sdk/emulator:/Users/drmac/Library/Android/sdk/tools:/Users/drmac/Library/Android/sdk/tools/bin:/Users/drmac/Library/Android/sdk/platform-tools:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/Library/Apple/usr/bin:/opt/homebrew/bin:/Users/drmac/.codex/tmp/arg0/codex-arg0DcKqHa:/Users/drmac/.nvm/versions/node/v20.20.1/bin:/Users/drmac/.rbenv/shims:/opt/homebrew/opt/ruby/bin:/Users/drmac/Library/Android/sdk/emulator:/Users/drmac/Library/Android/sdk/tools:/Users/drmac/Library/Android/sdk/tools/bin:/Users/drmac/Library/Android/sdk/platform-tools:/Users/drmac/.cargo/bin:/Users/drmac/flutter_sdk/flutter/bin:/Users/drmac/.pub-cache/bin:/Users/drmac/.vscode/extensions/openai.chatgpt-26.825.51511-darwin-arm64/bin/macos-aarch64:/Users/drmac/flutter_sdk/flutter/bin:/Users/drmac/.pub-cache/bin HOME=/Users/drmac /Users/drmac/flutter_sdk/flutter/bin/cache/dart-sdk/bin/dart --packages=/Users/drmac/society_app/packages/society_ui/.dart_tool/package_config.json /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/objective_c/7ad245dadc/hook.dill --config=/Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/objective_c/7ad245dadc/input.json )`.
+INFO: 2026-08-30 10:31:26.780620: Using compiler /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang from BuildInput.cCompiler.cc.
+
+INFO: 2026-08-30 10:31:26.784170: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-darwin -mmacos-version-min=13 -c /Users/drmac/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/include/dart_api_dl.c -fpic -gline-tables-only -I src -o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/include/dart_api_dl.c.o
+
+INFO: 2026-08-30 10:31:26.785237: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-darwin -mmacos-version-min=13 -c /Users/drmac/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/objective_c.c -fpic -gline-tables-only -I src -o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.c.o
+
+INFO: 2026-08-30 10:31:26.785392: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/drmac/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/input_stream_adapter.m -fpic -gline-tables-only -I src -o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/input_stream_adapter.m.o
+
+INFO: 2026-08-30 10:31:26.785507: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/drmac/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/objective_c.m -fpic -gline-tables-only -I src -o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.m.o
+
+INFO: 2026-08-30 10:31:26.785623: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/drmac/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/observer.m -fpic -gline-tables-only -I src -o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/observer.m.o
+
+INFO: 2026-08-30 10:31:26.785727: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/drmac/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/ns_number.m -fpic -gline-tables-only -I src -o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/ns_number.m.o
+
+INFO: 2026-08-30 10:31:26.785832: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/drmac/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/protocol.m -fpic -gline-tables-only -I src -o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/protocol.m.o
+
+INFO: 2026-08-30 10:31:26.785940: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/drmac/.pub-cache/hosted/pub.dev/objective_c-9.5.0/src/objective_c_bindings_generated.m -fpic -gline-tables-only -I src -o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c_bindings_generated.m.o
+
+INFO: 2026-08-30 10:31:27.024075: 
+INFO: 2026-08-30 10:31:27.024246: 
+INFO: 2026-08-30 10:31:27.024320: Generated /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.c.o
+
+INFO: 2026-08-30 10:31:27.024811: 
+INFO: 2026-08-30 10:31:27.024859: 
+INFO: 2026-08-30 10:31:27.024887: Generated /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/include/dart_api_dl.c.o
+
+INFO: 2026-08-30 10:31:27.026118: 
+INFO: 2026-08-30 10:31:27.026134: 
+
+ckages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/observer.m.o
+
+INFO: 2026-08-30 10:31:27.026195: Generated /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/protocol.m.o
+
+INFO: 2026-08-30 10:31:27.306504: 
+INFO: 2026-08-30 10:31:27.306557: 
+INFO: 2026-08-30 10:31:27.306568: Generated /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/ns_number.m.o
+
+INFO: 2026-08-30 10:31:27.319168: Generated /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/input_stream_adapter.m.o
+
+shared/objective_c/build/7ad245dadc/obj/src/objective_c.m.o
+INFO: 2026-08-30 10:31:27.319148: 
+INFO: 2026-08-30 10:31:27.319159: 
+
+INFO: 2026-08-30 10:31:27.357031: 
+INFO: 2026-08-30 10:31:27.357067: 
+INFO: 2026-08-30 10:31:27.357077: Generated /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c_bindings_generated.m.o
+
+INFO: 2026-08-30 10:31:27.357357: Running: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -shared -Wl,-encryptable -undefined dynamic_lookup -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -target arm64-apple-darwin -mmacos-version-min=13 /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/include/dart_api_dl.c.o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.c.o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/input_stream_adapter.m.o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c.m.o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/observer.m.o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/ns_number.m.o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/protocol.m.o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/obj/src/objective_c_bindings_generated.m.o -o /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/objective_c.dylib
+
+INFO: 2026-08-30 10:31:27.493274: 
+INFO: 2026-08-30 10:31:27.493332: 
+INFO: 2026-08-30 10:31:27.493344: Generated /Users/drmac/society_app/packages/society_ui/.dart_tool/hooks_runner/shared/objective_c/build/7ad245dadc/objective_c.dylib
+
