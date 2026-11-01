@@ -36,7 +36,7 @@ jobs:
     outputs:
       image: ${{ steps.names.outputs.backend_ref }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - id: names
         name: Resolve immutable image name
         shell: bash
@@ -91,7 +91,7 @@ jobs:
             path: apps/member
             base_href: /member/
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: 3.41.9
@@ -128,8 +128,8 @@ jobs:
     outputs:
       image: ${{ steps.names.outputs.web_ref }}
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/download-artifact@v6
+      - uses: actions/checkout@v7
+      - uses: actions/download-artifact@v8
         with:
           pattern: release-web-*
           path: artifacts
@@ -176,7 +176,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment || 'production' }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Validate deployment configuration
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
